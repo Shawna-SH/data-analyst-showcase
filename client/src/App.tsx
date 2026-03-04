@@ -3,16 +3,34 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Navigation } from "@/components/Navigation";
 import NotFound from "@/pages/not-found";
+
+// Pages
+import Home from "@/pages/Home";
+import Projects from "@/pages/Projects";
+import ProjectDetail from "@/pages/ProjectDetail";
+import Demos from "@/pages/Demos";
+import About from "@/pages/About";
 
 function Router() {
   return (
-    <Switch>
-      {/* Add pages below */}
-      {/* <Route path="/" component={Home}/> */}
-      {/* Fallback to 404 */}
-      <Route component={NotFound} />
-    </Switch>
+    <div className="min-h-screen flex flex-col bg-background font-sans">
+      <Navigation />
+      <main className="flex-grow">
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/projects" component={Projects} />
+          <Route path="/projects/:id" component={ProjectDetail} />
+          <Route path="/demos" component={Demos} />
+          <Route path="/about" component={About} />
+          <Route component={NotFound} />
+        </Switch>
+      </main>
+      <footer className="py-6 text-center text-sm text-muted-foreground border-t font-mono">
+        © {new Date().getFullYear()} Alex Data. Built with React & Tailwind.
+      </footer>
+    </div>
   );
 }
 
