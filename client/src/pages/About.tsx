@@ -15,16 +15,20 @@ export default function About() {
           <section>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">About Me</h1>
             <div className="prose prose-lg dark:prose-invert text-muted-foreground leading-relaxed">
-              <p>
-                I am a data professional bridging the gap between raw data engineering and 
-                actionable business analytics. I build robust data pipelines that don't break 
-                at 2 AM, and I design dashboards that executives actually want to read.
+              <p className="mb-4">
+                I am a data analyst who enjoys transforming complex and messy datasets 
+                into clear insights that support better decisions. I approach data problems 
+                with curiosity and structure, focusing on understanding patterns, uncovering 
+                meaningful trends, and communicating results in a way that stakeholders can 
+                actually use.
               </p>
+              
               <p>
-                My background spans working with messy unstructured data sets, architecting 
-                scalable ETL flows, and deploying lightweight predictive models. I believe 
-                that good data infrastructure is invisible, but its impact on business strategy 
-                is undeniable.
+                My work often sits at the intersection of analysis and communication. I enjoy 
+                exploring data, building analytical workflows, and presenting insights through 
+                clear visualisations and dashboards. I believe that good data work is not just 
+                about numbers, but about helping people see the story behind the data and act 
+                on it with confidence.
               </p>
             </div>
           </section>

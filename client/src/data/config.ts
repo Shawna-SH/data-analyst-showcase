@@ -5,7 +5,7 @@ export const PORTFOLIO_CONFIG = {
     shortIntro: "Transforming raw data into actionable insights and robust pipelines.",
     email: "shiruipu23@gmail.com",
     github: "https://github.com/Shawna-SH",
-    linkedin: "www.linkedin.com/in/ruipushi",
+    linkedin: "https://www.linkedin.com/in/ruipushi/",
     resumeLink: "#" // Placeholder for download
   },
   skills: {
