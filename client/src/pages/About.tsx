@@ -120,7 +120,6 @@ export default function About() {
               </div>
               <div>
                 <p className="text-sm font-medium">LinkedIn</p>
-                <p className="text-xs text-muted-foreground font-mono">Professional Network</p>
               </div>
             </a>
 
@@ -134,7 +133,6 @@ export default function About() {
               </div>
               <div>
                 <p className="text-sm font-medium">GitHub</p>
-                <p className="text-xs text-muted-foreground font-mono">Code Repository</p>
               </div>
             </a>
           </div>
