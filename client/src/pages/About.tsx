@@ -124,6 +124,7 @@ export default function About() {
               </div>
               <div>
                 <p className="text-sm font-medium">LinkedIn</p>
+                <p className="text-xs text-muted-foreground font-mono">View professional profile</p>
               </div>
             </a>
 
@@ -137,6 +138,7 @@ export default function About() {
               </div>
               <div>
                 <p className="text-sm font-medium">GitHub</p>
+                <p className="text-xs text-muted-foreground font-mono">Browse projects and code</p>
               </div>
             </a>
           </div>
