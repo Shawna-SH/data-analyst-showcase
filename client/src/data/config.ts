@@ -1,18 +1,20 @@
 export const PORTFOLIO_CONFIG = {
   personalInfo: {
-    name: "Alex Data",
+    name: "Ruipu Shi",
     headline: "Data Analyst & Engineer",
     shortIntro: "Transforming raw data into actionable insights and robust pipelines.",
-    email: "hello@example.com",
-    github: "https://github.com/",
-    linkedin: "https://linkedin.com/",
+    email: "shiruipu23@gmail.com",
+    github: "https://github.com/Shawna-SH",
+    linkedin: "www.linkedin.com/in/ruipushi",
     resumeLink: "#" // Placeholder for download
   },
   skills: {
-    languages: ["Python", "SQL", "R", "JavaScript/TypeScript"],
-    tools: ["dbt", "Snowflake", "BigQuery", "Docker", "Airflow", "Git"],
-    visualization: ["Tableau", "Looker", "Streamlit", "Plotly", "PowerBI"],
-    ml: ["scikit-learn", "pandas", "numpy", "XGBoost", "HuggingFace"]
+    languages: ["Python", "SQL", "R", "JavaScript / TypeScript"],
+    data_analysis: ["pandas","numpy","Statistical Analysis","Hypothesis Testing","Data Cleaning"],
+    visualization: ["Power BI","Tableau","Plotly","matplotlib","seaborn"],
+    data_engineering: ["SQL","ETL Pipelines","Data Processing","Web Scraping"],
+    tools: ["Git","Docker","Linux","Jupyter Notebook"],
+    ml: ["scikit-learn","Feature Engineering","Model Evaluation"]
   }
 };
 

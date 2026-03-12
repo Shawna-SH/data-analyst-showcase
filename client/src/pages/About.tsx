@@ -36,9 +36,18 @@ export default function About() {
             
             <div className="space-y-6">
               <div>
-                <h3 className="text-sm font-mono text-muted-foreground uppercase tracking-wider mb-3">Languages & Frameworks</h3>
+                <h3 className="text-sm font-mono text-muted-foreground uppercase tracking-wider mb-3">Languages</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.languages.map(skill => (
+                    <Badge key={skill} variant="secondary" className="px-3 py-1 text-sm">{skill}</Badge>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-mono text-muted-foreground uppercase tracking-wider mb-3">Data Analysis</h3>
+                <div className="flex flex-wrap gap-2">
+                  {skills.data_analysis.map(skill => (
                     <Badge key={skill} variant="secondary" className="px-3 py-1 text-sm">{skill}</Badge>
                   ))}
                 </div>
@@ -47,14 +56,14 @@ export default function About() {
               <div>
                 <h3 className="text-sm font-mono text-muted-foreground uppercase tracking-wider mb-3">Data Engineering</h3>
                 <div className="flex flex-wrap gap-2">
-                  {skills.tools.map(skill => (
+                  {skills.data_engineering.map(skill => (
                     <Badge key={skill} variant="outline" className="px-3 py-1 text-sm border-primary/20">{skill}</Badge>
                   ))}
                 </div>
               </div>
 
               <div>
-                <h3 className="text-sm font-mono text-muted-foreground uppercase tracking-wider mb-3">Analytics & BI</h3>
+                <h3 className="text-sm font-mono text-muted-foreground uppercase tracking-wider mb-3">Visualization</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.visualization.map(skill => (
                     <Badge key={skill} variant="outline" className="px-3 py-1 text-sm">{skill}</Badge>
@@ -67,6 +76,15 @@ export default function About() {
                 <div className="flex flex-wrap gap-2">
                   {skills.ml.map(skill => (
                     <Badge key={skill} variant="outline" className="px-3 py-1 text-sm bg-muted/50">{skill}</Badge>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-mono text-muted-foreground uppercase tracking-wider mb-3">Tools</h3>
+                <div className="flex flex-wrap gap-2">
+                  {skills.tools.map(skill => (
+                    <Badge key={skill} variant="outline" className="px-3 py-1 text-sm">{skill}</Badge>
                   ))}
                 </div>
               </div>
