@@ -1,0 +1,102 @@
+Please update my portfolio so that it contains only one featured project, based on my ANU data visualisation work.
+
+Goals:
+- Remove all current placeholder/sample projects.
+- Add one real project only.
+- Keep the existing project schema and field names unchanged.
+- Make the portfolio look polished even though there is only one project.
+- Use the two uploaded images properly in both the project card and the project detail page.
+
+Main tasks:
+
+1. Replace the entire PROJECTS array with a single project entry.
+2. Use the content below exactly, unless minor wording adjustments are needed for layout consistency.
+3. Make sure the project is marked as featured.
+4. Ensure the site still renders correctly when there is only one project.
+5. If there are sections that assume multiple projects, make them still look intentional and well-designed.
+6. Use the uploaded images as the visuals for this project.
+7. Make the project card, featured section, and detail page visually polished and balanced.
+
+Use this project object:
+
+{
+  id: "anu-executive-dashboard",
+  title: "ANU Executive Data Dashboard Prototype",
+  short_summary: "User-centred executive dashboard designed to centralise university data and support data-driven decision making.",
+  role: "Data Analyst",
+  tags: ["Data Visualisation", "Dashboard Design", "User Research", "Data Storytelling"],
+  tech_stack: ["Power BI", "Python", "Data Visualisation", "User Research"],
+  dataset_source: "Australian National University internal academic data (prototype scenario)",
+
+  problem: "ANU faced challenges with fragmented data systems and siloed information across departments, making it difficult for stakeholders to access timely insights. Existing reporting tools were slow, outdated, and lacked customisation, limiting the ability of decision makers to analyse trends and respond quickly.",
+
+  approach: "Conducted stakeholder interviews to understand analytical needs across academic and administrative roles. Used affinity diagramming to identify common themes and data requirements. Designed low-fidelity prototypes followed by a high-fidelity interactive dashboard focused on key metrics such as course enrolment, grade distributions, and student activity indicators.",
+
+  key_results: [
+    "Designed a centralised dashboard concept integrating multiple institutional data sources.",
+    "Created intuitive visualisations that allow stakeholders to explore enrolment trends and academic performance.",
+    "Improved accessibility of key metrics through simplified visual layouts and role-based views.",
+    "Developed a scalable dashboard framework that can support future predictive analytics features."
+  ],
+
+  visuals: [
+    "/assets/images/anu-dashboard-poster.png",
+    "/assets/images/anu-dashboard-ui.png"
+  ],
+
+  links: {
+    github: "",
+    demo: ""
+  },
+
+  interview_talking_points: [
+    "Translating stakeholder requirements into practical dashboard design decisions.",
+    "Balancing information density with visual clarity for executive users.",
+    "Designing data visualisations that support both quick insights and deeper exploration.",
+    "Applying user-centred design principles to analytics tools."
+  ],
+
+  what_i_would_improve_next: [
+    "Integrate real-time institutional data sources for live dashboard updates.",
+    "Add predictive analytics features such as enrolment forecasting.",
+    "Introduce advanced filtering and search capabilities for deeper exploration."
+  ],
+
+  featured: true
+}
+
+Image instructions:
+- Use the uploaded poster image as: /assets/images/anu-dashboard-poster.png
+- Use the uploaded dashboard screenshot as: /assets/images/anu-dashboard-ui.png
+- If the actual folder structure is different, move or reference the images correctly so they render without broken links.
+- Use the poster image as the primary overview visual.
+- Use the dashboard screenshot as the secondary detailed interface visual.
+
+UI/UX requirements:
+- The single project card should still look strong and intentional, not lonely or unfinished.
+- If there is a featured projects section, make it feel like a spotlight/highlight section rather than a grid that happens to have only one item.
+- If there is a projects page, make the one project feel like a case study, not a missing list.
+- Ensure the project card has good spacing, image balance, and text hierarchy.
+- The project detail page should present the two images clearly and professionally, with appropriate sizing and spacing.
+- The poster image should display well as an overview/hero visual.
+- The dashboard screenshot should be large enough for users to understand the interface.
+- Keep the style clean, modern, and portfolio-appropriate.
+
+Content/layout adjustments:
+- If the current project card summary is too long for the card layout, lightly trim it while preserving meaning.
+- If the detail page benefits from section spacing or image captions, add them.
+- Keep the tone professional and concise.
+- Do not make the project sound overly academic or like an assignment submission.
+- Frame it as a strong analytics and dashboard design case study.
+
+Cleanup and consistency:
+- Remove any old placeholder links that no longer apply.
+- Remove any filters, search assumptions, or demo references that depend on having multiple placeholder projects, if they make the UI look awkward.
+- Make sure no broken empty states appear after changing to a single project.
+- Ensure TypeScript types remain valid and the app builds successfully.
+
+After finishing:
+- Verify the portfolio loads correctly.
+- Verify the project card shows the correct image and content.
+- Verify the detail page shows both visuals correctly.
+- Verify there are no runtime errors.

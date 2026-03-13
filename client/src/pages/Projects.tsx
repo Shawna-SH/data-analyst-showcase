@@ -5,17 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Search, SlidersHorizontal } from "lucide-react";
 
-// Import images to map
-import edaProjectImg from "@/assets/images/eda-project.png";
-import pipelineProjectImg from "@/assets/images/pipeline-project.png";
-import mlProjectImg from "@/assets/images/ml-project.png";
-import dashboardProjectImg from "@/assets/images/dashboard-project.png";
+// Import project images to satisfy Vite's static asset requirements
+import anuDashboardPosterImg from "@/assets/images/anu-dashboard-poster.jpg";
+import anuDashboardUiImg from "@/assets/images/anu-dashboard-ui.jpg";
 
 const imageMap: Record<string, string> = {
-  "/assets/images/eda-project.png": edaProjectImg,
-  "/assets/images/pipeline-project.png": pipelineProjectImg,
-  "/assets/images/ml-project.png": mlProjectImg,
-  "/assets/images/dashboard-project.png": dashboardProjectImg,
+  "/assets/images/anu-dashboard-poster.jpg": anuDashboardPosterImg,
+  "/assets/images/anu-dashboard-ui.jpg": anuDashboardUiImg,
 };
 
 export default function Projects() {

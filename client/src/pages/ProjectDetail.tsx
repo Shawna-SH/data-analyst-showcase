@@ -5,17 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
-// Import images to map
-import edaProjectImg from "@/assets/images/eda-project.png";
-import pipelineProjectImg from "@/assets/images/pipeline-project.png";
-import mlProjectImg from "@/assets/images/ml-project.png";
-import dashboardProjectImg from "@/assets/images/dashboard-project.png";
+// Import project images to satisfy Vite's static asset requirements
+import anuDashboardPosterImg from "@/assets/images/anu-dashboard-poster.jpg";
+import anuDashboardUiImg from "@/assets/images/anu-dashboard-ui.jpg";
 
 const imageMap: Record<string, string> = {
-  "/assets/images/eda-project.png": edaProjectImg,
-  "/assets/images/pipeline-project.png": pipelineProjectImg,
-  "/assets/images/ml-project.png": mlProjectImg,
-  "/assets/images/dashboard-project.png": dashboardProjectImg,
+  "/assets/images/anu-dashboard-poster.jpg": anuDashboardPosterImg,
+  "/assets/images/anu-dashboard-ui.jpg": anuDashboardUiImg,
 };
 
 export default function ProjectDetail() {
@@ -61,11 +57,11 @@ export default function ProjectDetail() {
       </div>
 
       {project.visuals[0] && (
-        <div className="aspect-video w-full rounded-xl overflow-hidden border mb-12 shadow-sm">
+        <div className="aspect-[4/3] w-full rounded-xl overflow-hidden border mb-12 shadow-sm relative group bg-muted/20">
           <img 
             src={project.visuals[0]} 
-            alt={project.title} 
-            className="w-full h-full object-cover"
+            alt={`${project.title} - Overview`} 
+            className="w-full h-full object-contain p-4"
           />
         </div>
       )}
@@ -119,6 +115,19 @@ export default function ProjectDetail() {
           <h2 className="text-2xl font-bold tracking-tight mb-4 border-b pb-2">Approach & Architecture</h2>
           <p className="text-muted-foreground leading-relaxed whitespace-pre-wrap">{project.approach}</p>
         </section>
+        
+        {project.visuals[1] && (
+          <section className="my-12">
+            <div className="rounded-xl overflow-hidden border shadow-sm relative group bg-muted/20">
+              <img 
+                src={project.visuals[1]} 
+                alt={`${project.title} - Interface Dashboard Details`} 
+                className="w-full h-auto object-contain p-2"
+              />
+            </div>
+            <p className="text-center text-sm text-muted-foreground mt-4 font-mono italic">High-fidelity dashboard interface design focusing on key institutional metrics.</p>
+          </section>
+        )}
 
         <section>
           <h2 className="text-2xl font-bold tracking-tight mb-4 border-b pb-2">Key Results</h2>
