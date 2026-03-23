@@ -28,7 +28,7 @@ function Router() {
         </Switch>
       </main>
       <footer className="py-6 text-center text-sm text-muted-foreground border-t font-mono">
-        © {new Date().getFullYear()} Alex Data. Built with React & Tailwind.
+        © {new Date().getFullYear()} Ruipu Shi. Built with React & Tailwind.
       </footer>
     </div>
   );
