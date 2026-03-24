@@ -8,10 +8,12 @@ import { Separator } from "@/components/ui/separator";
 // Import project images to satisfy Vite's static asset requirements
 import anuDashboardPosterImg from "@/assets/images/anu-dashboard-poster.jpg";
 import anuDashboardUiImg from "@/assets/images/anu-dashboard-ui.jpg";
+import petClassifierImg from "@/assets/images/pet-classifier.png";
 
 const imageMap: Record<string, string> = {
   "/assets/images/anu-dashboard-poster.jpg": anuDashboardPosterImg,
   "/assets/images/anu-dashboard-ui.jpg": anuDashboardUiImg,
+  "/assets/images/pet-classifier.png": petClassifierImg,
 };
 
 export default function ProjectDetail() {
