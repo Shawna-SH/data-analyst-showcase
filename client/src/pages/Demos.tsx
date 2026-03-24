@@ -10,10 +10,10 @@ import { useParams, useLocation } from "wouter";
 
 export default function Demos() {
   const { toast } = useToast();
-  const params = useParams();
+  const params = useParams<{ slug?: string }>();
   const [, setLocation] = useLocation();
 
-  const currentSlug = params.slug || "pet-classifier";
+  const currentSlug = params?.slug || "pet-classifier";
 
   const handleTabChange = (value: string) => {
     setLocation(`/demos/${value}`);

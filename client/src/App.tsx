@@ -1,4 +1,5 @@
-import { Switch, Route, Redirect } from "wouter";
+import { useEffect } from "react";
+import { Switch, Route, Redirect, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -13,9 +14,20 @@ import ProjectDetail from "@/pages/ProjectDetail";
 import Demos from "@/pages/Demos";
 import About from "@/pages/About";
 
+function ScrollToTop() {
+  const [pathname] = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
+  return null;
+}
+
 function Router() {
   return (
     <div className="min-h-screen flex flex-col bg-background font-sans">
+      <ScrollToTop />
       <Navigation />
       <main className="flex-grow">
         <Switch>

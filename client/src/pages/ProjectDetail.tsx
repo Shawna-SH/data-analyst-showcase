@@ -97,9 +97,9 @@ export default function ProjectDetail() {
               </a>
             )}
             {project.links.demo && (
-              <a href={project.links.demo} className="text-sm font-medium hover:text-primary flex items-center gap-2 transition-colors">
+              <Link href={project.links.demo} className="text-sm font-medium hover:text-primary flex items-center gap-2 transition-colors cursor-pointer">
                 <ExternalLink className="h-4 w-4" /> Live Demo
-              </a>
+              </Link>
             )}
             {Object.keys(project.links).length === 0 && <span className="text-sm text-muted-foreground">Internal/Proprietary</span>}
           </div>
