@@ -95,7 +95,7 @@ export const PROJECTS: Project[] = [
     ],
     links: {
       github: "https://github.com/Shawna-SH/pet-image-classifier",
-      demo: "/demos" // Link to internal demos page
+      demo: "/demos/pet-classifier" // Link to internal demo
     },
     interview_talking_points: [
       "Experience in building a complete machine learning pipeline from scratch (data acquisition, preprocessing, fine-tuning, evaluation, and deployment).",
