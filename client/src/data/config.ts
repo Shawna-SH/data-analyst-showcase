@@ -78,17 +78,17 @@ export const PROJECTS: Project[] = [
   {
     id: "pet-image-classifier",
     title: "Pet Image Classifier (Cat vs Dog)",
-    short_summary: "利用 Oxford‑IIIT Pet 数据集和 PyTorch 构建并部署一个二分类模型，能够区分猫和狗。项目包括数据集加载与预处理、ResNet18 模型微调、模型评估、单张图片推理，以及一个基于 Streamlit 的交互式网络应用。",
+    short_summary: "Built and deployed a binary classification model using PyTorch to distinguish between cats and dogs, featuring an interactive Streamlit web application.",
     role: "Machine Learning",
     tags: ["Deep Learning", "Image Classification", "Computer Vision"],
     tech_stack: ["Python", "PyTorch", "Torchvision", "ResNet18", "scikit‑learn", "Streamlit", "Hugging Face Spaces"],
     dataset_source: "Oxford‑IIIT Pet dataset",
-    problem: "市面上有很多深度学习图像分类示例，但很多针对入门者的项目都是操作图像分类 API。本项目从零开始，自行训练一个轻量级的 ResNet18 模型，学习完整的机器学习流水线，包括数据获取、预处理、模型搭建、训练、评估和部署。\n\n图像分类的常见挑战包括类别不平衡、背景干扰以及过拟合，本项目通过适当的数据增强和正则化策略来缓解这些问题。",
-    approach: "使用 PyTorch 和 Torchvision 构建模型；采用预训练的 ResNet18 网络，并对最后的全连接层进行二分类微调。\n\n利用随机水平翻转、颜色抖动、归一化等数据增强方法，提高模型的泛化能力。\n\n设置训练 epoch 为 5、批量大小为 32、学习率 1e-3，采用交叉熵损失函数和 Adam 优化器。\n\n训练过程中在验证集上监控准确率并保存最佳模型。\n\n使用 scikit‑learn 的 classification_report 和 confusion_matrix 评估模型性能。",
+    problem: "While there are many deep learning tutorials that simply use pre-built APIs, this project involves building a complete machine learning pipeline from scratch. This includes data acquisition, preprocessing, model building, training, evaluation, and deployment.\n\nCommon challenges in image classification include class imbalance, background noise, and overfitting. This project addresses these issues through data augmentation and regularization strategies.",
+    approach: "Constructed the model using PyTorch and Torchvision, leveraging a pre-trained ResNet18 network and fine-tuning the final fully connected layer for binary classification.\n\nImplemented data augmentation techniques such as random horizontal flips, color jitter, and normalization to improve model generalization.\n\nConfigured training for 5 epochs with a batch size of 32 and a learning rate of 1e-3, utilizing a cross-entropy loss function and Adam optimizer.\n\nMonitored accuracy on the validation set during training to save the best-performing model.\n\nEvaluated model performance using scikit-learn's classification_report and confusion_matrix.",
     key_results: [
-      "模型在测试集上表现优异，准确率和 F1 分数均约在 0.93~0.95 之间，显示其能够有效分辨猫狗图像。",
-      "混淆矩阵表明模型对“猫”与“狗”类别的误判率都很低。",
-      "通过 Streamlit 应用，用户可以上传图片并实时查看预测结果和置信度，界面提供了图片预览、预测标签、概率分布等功能。"
+      "The model performed exceptionally well on the test set, achieving an accuracy and F1 score between 0.93 and 0.95, demonstrating its effectiveness in distinguishing between cats and dogs.",
+      "The confusion matrix indicated very low misclassification rates for both categories.",
+      "Through the Streamlit application, users can upload images and view real-time predictions and confidence scores. The interface provides image previews, predicted labels, and probability distributions."
     ],
     visuals: [
       "/assets/images/pet-classifier.png"
@@ -98,14 +98,13 @@ export const PROJECTS: Project[] = [
       demo: "/demos" // Link to internal demos page
     },
     interview_talking_points: [
-      "从头搭建机器学习流水线的完整经验（数据获取、预处理、模型微调、评估到部署）。",
-      "处理图像分类中常见挑战的策略，如数据增强防过拟合。",
-      "选择预训练 ResNet18 模型的优势与微调方法。"
+      "Experience in building a complete machine learning pipeline from scratch (data acquisition, preprocessing, fine-tuning, evaluation, and deployment).",
+      "Strategies for handling common challenges in image classification, such as using data augmentation to prevent overfitting.",
+      "The advantages of selecting a pre-trained ResNet18 model and the methodology for fine-tuning it."
     ],
     what_i_would_improve_next: [
-      "该项目展示了从数据到部署的完整机器学习流程，适合作为计算机视觉初学者的参考。",
-      "后续可尝试更复杂的模型（如 EfficientNet 或 ViT），并扩展到多品种分类任务。",
-      "另可将项目部署到云端 GPU 服务以获得更快的预测速度。"
+      "Experiment with more complex architectures (such as EfficientNet or Vision Transformers) and expand to multi-breed classification tasks.",
+      "Deploy the application to a cloud-based GPU service to achieve faster inference speeds."
     ],
     featured: true
   }
