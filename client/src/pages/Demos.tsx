@@ -6,9 +6,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calculator, UploadCloud, Camera, Image as ImageIcon, Sparkles, RefreshCcw, ExternalLink } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useParams, useLocation } from "wouter";
 
 export default function Demos() {
   const { toast } = useToast();
+  const params = useParams();
+  const [, setLocation] = useLocation();
+
+  const currentSlug = params.slug || "pet-classifier";
+
+  const handleTabChange = (value: string) => {
+    setLocation(`/demos/${value}`);
+  };
 
   return (
     <div className="container py-12 md:py-20 min-h-screen">
@@ -19,14 +28,14 @@ export default function Demos() {
         </p>
       </div>
 
-      <Tabs defaultValue="numeric" className="w-full max-w-4xl mx-auto">
+      <Tabs value={currentSlug} onValueChange={handleTabChange} className="w-full max-w-4xl mx-auto">
         <TabsList className="grid w-full grid-cols-2 mb-8">
-          <TabsTrigger value="numeric" className="font-mono"><ImageIcon className="mr-2 h-4 w-4" /> Pet Image Classifier</TabsTrigger>
-          <TabsTrigger value="numeric2" className="font-mono"><Sparkles className="mr-2 h-4 w-4" /> Coming Soon</TabsTrigger>
+          <TabsTrigger value="pet-classifier" className="font-mono"><ImageIcon className="mr-2 h-4 w-4" /> Pet Image Classifier</TabsTrigger>
+          <TabsTrigger value="coming-soon" className="font-mono"><Sparkles className="mr-2 h-4 w-4" /> Coming Soon</TabsTrigger>
         </TabsList>
 
         {/* Pet Image Classifier Demo */}
-        <TabsContent value="numeric">
+        <TabsContent value="pet-classifier">
           <Card className="border-primary/20 shadow-md">
             <CardHeader className="bg-muted/30 border-b">
               <CardTitle>Pet Image Classifier (Cat vs Dog)</CardTitle>
@@ -63,7 +72,7 @@ export default function Demos() {
         </TabsContent>
 
         {/* Coming Soon */}
-        <TabsContent value="numeric2">
+        <TabsContent value="coming-soon">
           <Card className="border-primary/20 shadow-md">
             <CardHeader className="bg-muted/30 border-b">
               <CardTitle>Coming Soon</CardTitle>
