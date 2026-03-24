@@ -10,7 +10,7 @@ import heroBg from "@/assets/images/hero-bg.png";
 // Import project images to satisfy Vite's static asset requirements
 import anuDashboardPosterImg from "@/assets/images/anu-dashboard-poster.jpg";
 import anuDashboardUiImg from "@/assets/images/anu-dashboard-ui.jpg";
-import petClassifierImg from "@/assets/images/pet-classifier.png";
+import petClassifierImg from "@/assets/images/pet-classifier-new.jpeg";
 
 // Map image paths in data to imported modules
 const imageMap: Record<string, string> = {
