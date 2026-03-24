@@ -80,9 +80,6 @@ export default function Demos() {
                 <p className="text-muted-foreground max-w-md">
                   I'm currently building new interactive examples to showcase data engineering pipelines and advanced predictive models. Check back later!
                 </p>
-                <Button variant="outline" className="mt-8 font-mono" disabled>
-                  <RefreshCcw className="mr-2 h-4 w-4 opacity-50" /> Check Updates
-                </Button>
               </div>
             </CardContent>
           </Card>
