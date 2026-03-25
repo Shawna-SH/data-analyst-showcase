@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "wouter";
+import { useLocation } from "wouter";
 import { Project } from "@/data/config";
 import { ArrowRight, Github } from "lucide-react";
 
@@ -9,11 +9,19 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const [, setLocation] = useLocation();
   // Use the placeholder image dynamically imported later, or fallback
   const imagePath = project.visuals[0] || "";
 
+  const handleCardClick = () => {
+    setLocation(`/projects/${project.id}`);
+  };
+
   return (
-    <Card className="flex flex-col overflow-hidden transition-all hover:border-primary/50 hover:shadow-md group bg-card/50 backdrop-blur-sm">
+    <Card 
+      className="flex flex-col overflow-hidden transition-all hover:border-primary/50 hover:shadow-md group bg-card/50 backdrop-blur-sm cursor-pointer"
+      onClick={handleCardClick}
+    >
       <div className="aspect-video w-full overflow-hidden relative border-b">
         {project.featured && (
           <div className="absolute top-2 right-2 z-10">
@@ -65,16 +73,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <CardFooter className="pt-0 flex justify-between items-center border-t border-border/50 pt-4 mt-4">
         <div className="flex gap-2">
           {project.links.github && (
-            <a href={project.links.github} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a 
+              href={project.links.github} 
+              target="_blank" 
+              rel="noreferrer" 
+              className="text-muted-foreground hover:text-foreground transition-colors relative z-10"
+              onClick={(e) => e.stopPropagation()}
+            >
               <Github className="h-4 w-4" />
             </a>
           )}
         </div>
-        <Link href={`/projects/${project.id}`}>
-          <span className="text-sm font-medium text-primary hover:text-primary/80 flex items-center cursor-pointer transition-colors">
-            View Details <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </span>
-        </Link>
+        <span className="text-sm font-medium text-primary hover:text-primary/80 flex items-center transition-colors">
+          View Details <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </span>
       </CardFooter>
     </Card>
   );
