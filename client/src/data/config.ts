@@ -43,12 +43,12 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     id: "anu-executive-dashboard",
-    title: "ANU Executive Data Dashboard Prototype",
+    title: "ANU Executive Data Dashboard",
     short_summary: "User-centred executive dashboard designed to centralise university data and support data-driven decision making.",
     role: "Data Analyst",
     tags: ["Data Visualisation", "Dashboard Design", "User Research", "Data Storytelling"],
     tech_stack: ["Miro", "Python", "Data Visualisation", "User Research"],
-    dataset_source: "Australian National University internal academic data (prototype scenario)",
+    dataset_source: "Australian National University internal academic data",
     problem: "ANU faced challenges with fragmented data systems and siloed information across departments, making it difficult for stakeholders to access timely insights. Existing reporting tools were slow, outdated, and lacked customisation, limiting the ability of decision makers to analyse trends and respond quickly.",
     approach: "Conducted stakeholder interviews to understand analytical needs across academic and administrative roles. Used affinity diagramming to identify common themes and data requirements. Designed low-fidelity prototypes followed by a high-fidelity interactive dashboard focused on key metrics such as course enrolment, grade distributions, and student activity indicators.",
     key_results: [
