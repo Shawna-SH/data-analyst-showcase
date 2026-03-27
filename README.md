@@ -6,8 +6,7 @@ The site showcases selected projects in data analytics, data engineering, and ma
 
 ## Live Site
 
-Portfolio:  
-coming soon
+[Ruipu Shi_Protfolio](https://data-analyst-showcase--shiruipu23.replit.app)
 
 ## Featured Project Types
 
