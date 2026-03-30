@@ -43,4 +43,5 @@ This portfolio is designed to demonstrate:
 
 Ruipu Shi  
 [LinkedIn](www.linkedin.com/in/ruipushi) 
+
 [GitHub](https://github.com/Shawna-SH)
