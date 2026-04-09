@@ -35,8 +35,9 @@ export type Project = {
     demo?: string;
     blog?: string;
   };
-  interview_talking_points: string[];
-  what_i_would_improve_next: string[];
+  interview_talking_points?: string[];
+  key_design_decisions?: string[];
+  what_i_would_improve_next?: string[];
   featured?: boolean;
 };
 
@@ -145,16 +146,16 @@ export const PROJECTS: Project[] = [
     links: {
       github: "https://github.com/Shawna-SH/Company-Enrichment-Pipeline-Case-Study"
     },
+    what_i_would_improve_next: [
+      "Enhance entity resolution to better handle subsidiaries, rebranding, and multi-location companies.",
+      "Introduce monitoring metrics such as confidence scores, fallback rates, and deduplication quality.",
+      "Expand enrichment coverage to include firmographic attributes such as industry classification and company size."
+    ],
     interview_talking_points: [
       "Adopted a rule-first, LLM-second architecture to balance cost, control, and scalability.",
       "Designed parallel enrichment modules to improve throughput and system modularity.",
       "Applied cross-source validation to handle conflicting information from noisy web inputs.",
       "Introduced a final deduplication stage to resolve duplicate entities before storage."
-    ],
-    what_i_would_improve_next: [
-      "Enhance entity resolution to better handle subsidiaries, rebranding, and multi-location companies.",
-      "Introduce monitoring metrics such as confidence scores, fallback rates, and deduplication quality.",
-      "Expand enrichment coverage to include firmographic attributes such as industry classification and company size."
     ],
     featured: true
   }

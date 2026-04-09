@@ -115,10 +115,10 @@ export default function ProjectDetail() {
             <div>
               <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
                 <span className="w-2 h-6 bg-primary rounded-full inline-block"></span>
-                Interview Talking Points
+                Key Design Decisions
               </h3>
               <ul className="space-y-2">
-                {project.interview_talking_points.map((point, i) => (
+                {(project.key_design_decisions || project.interview_talking_points)?.map((point, i) => (
                   <li key={i} className="text-sm text-muted-foreground flex gap-2">
                     <span className="text-primary/50">-</span> {point}
                   </li>
@@ -131,7 +131,7 @@ export default function ProjectDetail() {
                 Future Improvements
               </h3>
               <ul className="space-y-2">
-                {project.what_i_would_improve_next.map((point, i) => (
+                {project.what_i_would_improve_next?.map((point, i) => (
                   <li key={i} className="text-sm text-muted-foreground flex gap-2">
                     <span className="text-muted-foreground/50">-</span> {point}
                   </li>
