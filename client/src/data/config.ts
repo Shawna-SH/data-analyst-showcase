@@ -35,9 +35,8 @@ export type Project = {
     demo?: string;
     blog?: string;
   };
-  interview_talking_points?: string[];
-  key_design_decisions?: string[];
-  what_i_would_improve_next?: string[];
+  key_design_decisions: string[];
+  what_i_would_improve_next: string[];
   featured?: boolean;
 };
 
@@ -151,7 +150,7 @@ export const PROJECTS: Project[] = [
       "Introduce monitoring metrics such as confidence scores, fallback rates, and deduplication quality.",
       "Expand enrichment coverage to include firmographic attributes such as industry classification and company size."
     ],
-    interview_talking_points: [
+    key_design_decisions: [
       "Adopted a rule-first, LLM-second architecture to balance cost, control, and scalability.",
       "Designed parallel enrichment modules to improve throughput and system modularity.",
       "Applied cross-source validation to handle conflicting information from noisy web inputs.",

@@ -110,7 +110,7 @@ export default function ProjectDetail() {
 
           <Separator />
 
-          {/* Interview/Meta Section */}
+          {/* Meta Section */}
           <div className="grid md:grid-cols-2 gap-8 bg-card border rounded-xl p-8 shadow-sm">
             <div>
               <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
@@ -118,7 +118,7 @@ export default function ProjectDetail() {
                 Key Design Decisions
               </h3>
               <ul className="space-y-2">
-                {(project.key_design_decisions || project.interview_talking_points)?.map((point, i) => (
+                {project.key_design_decisions?.map((point, i) => (
                   <li key={i} className="text-sm text-muted-foreground flex gap-2">
                     <span className="text-primary/50">-</span> {point}
                   </li>
