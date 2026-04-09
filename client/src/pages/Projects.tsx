@@ -27,8 +27,14 @@ export default function Projects() {
 
   // Filter projects
   const filteredProjects = PROJECTS.filter(p => {
-    const matchesSearch = p.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          p.short_summary.toLowerCase().includes(searchTerm.toLowerCase());
+    const searchLower = searchTerm.toLowerCase();
+    const matchesSearch = searchTerm === "" || 
+                          p.title.toLowerCase().includes(searchLower) || 
+                          p.short_summary.toLowerCase().includes(searchLower) ||
+                          p.role.toLowerCase().includes(searchLower) ||
+                          p.tags.some(t => t.toLowerCase().includes(searchLower)) ||
+                          p.tech_stack.some(t => t.toLowerCase().includes(searchLower));
+                          
     const matchesTag = activeTag ? p.tags.includes(activeTag) : true;
     return matchesSearch && matchesTag;
   }).map(p => ({
@@ -46,36 +52,51 @@ export default function Projects() {
       </div>
 
       {/* Filters & Search */}
-      <div className="flex flex-col md:flex-row gap-4 mb-10 items-start md:items-center justify-between bg-muted/30 p-4 rounded-lg border">
-        <div className="relative w-full md:max-w-md">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+      <div className="flex flex-col gap-6 mb-10 bg-muted/30 p-6 rounded-xl border">
+        <div className="relative w-full md:max-w-xl">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input 
-            placeholder="Search projects..." 
-            className="pl-10 bg-background"
+            placeholder="Search projects by title, description, or keyword..." 
+            className="pl-11 bg-background h-12 text-base border-muted-foreground/20 shadow-sm"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
         
-        <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
-          <SlidersHorizontal className="h-4 w-4 text-muted-foreground mr-2 shrink-0" />
-          <Badge 
-            variant={activeTag === null ? "default" : "outline"}
-            className="cursor-pointer whitespace-nowrap shrink-0"
-            onClick={() => setActiveTag(null)}
-          >
-            All
-          </Badge>
-          {allTags.map(tag => (
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+              <SlidersHorizontal className="h-4 w-4 text-primary" /> Filter by Technology & Domain
+            </div>
+            {activeTag && (
+              <button 
+                onClick={() => setActiveTag(null)}
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4"
+              >
+                Clear filter
+              </button>
+            )}
+          </div>
+          
+          <div className="flex flex-wrap items-center gap-2 max-h-32 overflow-y-auto pr-2 pb-1 scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent">
             <Badge 
-              key={tag}
-              variant={activeTag === tag ? "default" : "outline"}
-              className="cursor-pointer whitespace-nowrap shrink-0"
-              onClick={() => setActiveTag(tag)}
+              variant={activeTag === null ? "default" : "outline"}
+              className={`cursor-pointer px-4 py-1.5 text-sm transition-all hover:-translate-y-0.5 ${activeTag === null ? 'shadow-md' : 'bg-background hover:bg-muted'}`}
+              onClick={() => setActiveTag(null)}
             >
-              {tag}
+              All Projects
             </Badge>
-          ))}
+            {allTags.map(tag => (
+              <Badge 
+                key={tag}
+                variant={activeTag === tag ? "default" : "outline"}
+                className={`cursor-pointer px-3 py-1.5 transition-all hover:-translate-y-0.5 ${activeTag === tag ? 'shadow-md' : 'bg-background hover:bg-muted font-normal text-muted-foreground hover:text-foreground'}`}
+                onClick={() => setActiveTag(tag)}
+              >
+                {tag}
+              </Badge>
+            ))}
+          </div>
         </div>
       </div>
 
