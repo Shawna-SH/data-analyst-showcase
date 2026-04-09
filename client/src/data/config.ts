@@ -62,11 +62,11 @@ export const PROJECTS: Project[] = [
       "/assets/images/anu-dashboard-ui.jpg"
     ],
     links: {},
-    interview_talking_points: [
-      "Translating stakeholder requirements into practical dashboard design decisions.",
-      "Balancing information density with visual clarity for executive users.",
-      "Designing data visualisations that support both quick insights and deeper exploration.",
-      "Applying user-centred design principles to analytics tools."
+    key_design_decisions: [
+      "Prioritised a user-centred design approach by aligning dashboard structure with stakeholder decision-making needs.",
+      "Balanced information density and clarity to support both quick executive insights and deeper exploration.",
+      "Selected key academic metrics based on cross-role relevance rather than data availability alone.",
+      "Designed modular visual components to allow future integration of predictive analytics features."
     ],
     what_i_would_improve_next: [
       "Integrate real-time institutional data sources for live dashboard updates.",
@@ -97,14 +97,64 @@ export const PROJECTS: Project[] = [
       github: "https://github.com/Shawna-SH/pet-image-classifier",
       demo: "/demos/pet-classifier" // Link to internal demo
     },
-    interview_talking_points: [
-      "Experience in building a complete machine learning pipeline from scratch (data acquisition, preprocessing, fine-tuning, evaluation, and deployment).",
-      "Strategies for handling common challenges in image classification, such as using data augmentation to prevent overfitting.",
-      "The advantages of selecting a pre-trained ResNet18 model and the methodology for fine-tuning it."
+    key_design_decisions: [
+      "Leveraged a pre-trained ResNet18 model to balance performance and training efficiency.",
+      "Applied data augmentation techniques to mitigate overfitting and improve generalisation.",
+      "Used validation-based checkpointing to ensure the best-performing model was retained.",
+      "Designed an interactive deployment interface to make model predictions accessible to non-technical users."
     ],
     what_i_would_improve_next: [
       "Experiment with more complex architectures (such as EfficientNet or Vision Transformers) and expand to multi-breed classification tasks.",
       "Deploy the application to a cloud-based GPU service to achieve faster inference speeds."
+    ],
+    featured: true
+  },
+  {
+    id: "company-enrichment-pipeline",
+    title: "Company Enrichment Pipeline",
+    short_summary: "Designed a scalable pipeline that transforms noisy web data into structured company records using rule-based validation, selective LLM fallback, and deduplication.",
+    role: "Data Engineer",
+    tags: [
+      "Data Engineering",
+      "Information Extraction",
+      "Entity Resolution",
+      "Pipeline Design",
+      "LLM Integration"
+    ],
+    tech_stack: [
+      "Python",
+      "Search APIs",
+      "Web Parsing",
+      "OCR",
+      "Rule-based Systems",
+      "LLM",
+      "Entity Resolution"
+    ],
+    dataset_source: "Public web data (company websites, search results, external business profiles)",
+    problem: "Company data from the open web is noisy, inconsistent, and difficult to trust at scale. Search results often include irrelevant pages, while key attributes such as company name, logo, description, and office locations appear in conflicting formats across sources. A naive LLM-first approach is costly and lacks controllability, making it unsuitable for large-scale enrichment.",
+    approach: "Designed a hybrid enrichment pipeline that filters raw search results to likely official company websites, followed by parallel extraction of key attributes (name, logo, description, office, contact, and social profiles). Candidate values are ranked using rule-based scoring and cross-source consistency checks. LLM validation is applied only to low-confidence cases. A final deduplication stage resolves duplicate entities before outputting clean, database-ready records.",
+    key_results: [
+      "Built an end-to-end pipeline that converts unstructured web data into structured company profiles.",
+      "Reduced reliance on LLM calls through a deterministic-first decision framework.",
+      "Improved data reliability using multi-signal validation across content, metadata, OCR, and external profiles.",
+      "Delivered deduplicated, database-ready outputs suitable for downstream applications."
+    ],
+    visuals: [
+      "/assets/images/company-enrichment-architecture.png"
+    ],
+    links: {
+      github: "https://github.com/Shawna-SH/Company-Enrichment-Pipeline-Case-Study"
+    },
+    interview_talking_points: [
+      "Adopted a rule-first, LLM-second architecture to balance cost, control, and scalability.",
+      "Designed parallel enrichment modules to improve throughput and system modularity.",
+      "Applied cross-source validation to handle conflicting information from noisy web inputs.",
+      "Introduced a final deduplication stage to resolve duplicate entities before storage."
+    ],
+    what_i_would_improve_next: [
+      "Enhance entity resolution to better handle subsidiaries, rebranding, and multi-location companies.",
+      "Introduce monitoring metrics such as confidence scores, fallback rates, and deduplication quality.",
+      "Expand enrichment coverage to include firmographic attributes such as industry classification and company size."
     ],
     featured: true
   }

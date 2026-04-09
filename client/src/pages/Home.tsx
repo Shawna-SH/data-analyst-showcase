@@ -11,12 +11,14 @@ import heroBg from "@/assets/images/hero-bg.png";
 import anuDashboardPosterImg from "@/assets/images/anu-dashboard-poster.jpg";
 import anuDashboardUiImg from "@/assets/images/anu-dashboard-ui.jpg";
 import petClassifierImg from "@/assets/images/pet-classifier-new.jpeg";
+import companyEnrichmentImg from "@/assets/images/company-enrichment-architecture.png";
 
 // Map image paths in data to imported modules
 const imageMap: Record<string, string> = {
   "/assets/images/anu-dashboard-poster.jpg": anuDashboardPosterImg,
   "/assets/images/anu-dashboard-ui.jpg": anuDashboardUiImg,
   "/assets/images/pet-classifier.png": petClassifierImg,
+  "/assets/images/company-enrichment-architecture.png": companyEnrichmentImg,
 };
 
 export default function Home() {
