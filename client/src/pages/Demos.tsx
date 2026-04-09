@@ -21,7 +21,7 @@ export default function Demos() {
 
   return (
     <div className="container py-12 md:py-20 min-h-screen">
-      <div className="max-w-2xl mb-12">
+      <div className="w-full max-w-4xl mx-auto mb-12">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Interactive Demos</h1>
         <p className="text-lg text-muted-foreground">
           Lightweight, in-browser examples of predictive modeling and image processing architectures.
