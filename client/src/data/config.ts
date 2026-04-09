@@ -134,10 +134,10 @@ export const PROJECTS: Project[] = [
     problem: "Company data from the open web is noisy, inconsistent, and difficult to trust at scale. Search results often include irrelevant pages, while key attributes such as company name, logo, description, and office locations appear in conflicting formats across sources. A naive LLM-first approach is costly and lacks controllability, making it unsuitable for large-scale enrichment.",
     approach: "Designed a hybrid enrichment pipeline that filters raw search results to likely official company websites, followed by parallel extraction of key attributes (name, logo, description, office, contact, and social profiles). Candidate values are ranked using rule-based scoring and cross-source consistency checks. LLM validation is applied only to low-confidence cases. A final deduplication stage resolves duplicate entities before outputting clean, database-ready records.",
     key_results: [
-      "Built an end-to-end pipeline that converts unstructured web data into structured company profiles.",
-      "Reduced reliance on LLM calls through a deterministic-first decision framework.",
-      "Improved data reliability using multi-signal validation across content, metadata, OCR, and external profiles.",
-      "Delivered deduplicated, database-ready outputs suitable for downstream applications."
+      "Expanded the company database by 10% through automated enrichment from web sources.",
+      "Improved data completeness by 50% by consolidating multi-source signals and resolving missing attributes.",
+      "Reduced reliance on LLM calls through a deterministic-first decision framework, lowering operational cost.",
+      "Delivered deduplicated, database-ready company records for downstream analytics and applications."
     ],
     visuals: [
       "/assets/images/company-enrichment-architecture.png"

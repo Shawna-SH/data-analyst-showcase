@@ -70,9 +70,9 @@ export default function ProjectDetail() {
         </div>
       )}
 
-      <div className="flex flex-col md:flex-row gap-10 lg:gap-16 items-start relative">
+      <div className="flex flex-col sm:flex-row gap-8 lg:gap-16 items-start">
         {/* Main Content (Left) */}
-        <div className="flex-1 space-y-12 w-full md:min-w-[0]">
+        <div className="flex-1 space-y-12 w-full min-w-0">
           <section>
             <h2 className="text-2xl font-bold tracking-tight mb-4 border-b pb-2">Problem & Context</h2>
             <p className="text-muted-foreground leading-relaxed whitespace-pre-wrap">{project.problem}</p>
@@ -142,7 +142,7 @@ export default function ProjectDetail() {
         </div>
 
         {/* Sidebar (Right) */}
-        <aside className="w-full md:w-72 lg:w-80 shrink-0 md:sticky md:top-24 space-y-8 bg-muted/20 border rounded-xl p-6 shadow-sm">
+        <aside className="w-full sm:w-64 md:w-72 lg:w-80 shrink-0 sm:sticky sm:top-24 space-y-8 bg-muted/20 border rounded-xl p-6 shadow-sm self-start max-h-[calc(100vh-7rem)] overflow-y-auto">
           <div>
             <h3 className="font-semibold flex items-center gap-2 mb-4 text-sm text-muted-foreground">
               <Server className="h-4 w-4" /> Project Links
