@@ -61,11 +61,11 @@ export default function ProjectDetail() {
       </div>
 
       {project.visuals[0] && (
-        <div className="aspect-[4/3] w-full rounded-xl overflow-hidden border mb-12 shadow-sm relative group bg-muted/20">
+        <div className={`w-full rounded-xl overflow-hidden border mb-12 shadow-sm relative group bg-muted/20 flex justify-center items-center ${project.id === 'pet-classifier' ? 'aspect-auto py-12' : 'aspect-[4/3]'}`}>
           <img 
             src={project.visuals[0]} 
             alt={`${project.title} - Overview`} 
-            className="w-full h-full object-contain p-4"
+            className={`object-contain ${project.id === 'pet-classifier' ? 'h-[400px] w-auto rounded-xl shadow-2xl' : 'w-full h-full p-4'}`}
           />
         </div>
       )}
