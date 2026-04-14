@@ -117,20 +117,16 @@ export const PROJECTS: Project[] = [
     ],
     links: {},
     key_design_decisions: [
-      "Adopted a user-centred design approach based on qualitative stakeholder interviews (n=5), ensuring the dashboard structure aligns with real decision-making workflows rather than assumed requirements.",
-      "Prioritised a modular and role-based dashboard architecture, enabling different user groups (academic, administrative, management) to access relevant metrics without overloading the interface.",
-      "Implemented hierarchical information design (overview → drill-down), allowing users to quickly capture high-level insights while supporting deeper analytical exploration when needed.",
-      "Selected visualisation types based on analytical tasks (temporal, categorical, spatial) to improve interpretability and reduce cognitive load, rather than using generic chart templates.",
-      "Designed for near real-time data interaction (auto-refresh and timestamp indicators) to address limitations of existing systems with delayed data updates and improve decision timeliness.",
-      "Balanced flexibility and usability by introducing interactive features (filters, customisation, drill-down) while maintaining a clean and structured layout to avoid information overload."
+      "Adopted a user-centred design approach based on stakeholder interviews (n=5), aligning the dashboard with real decision-making workflows.",
+      "Designed a modular, role-based architecture to deliver relevant metrics to different user groups without overwhelming the interface.",
+      "Implemented hierarchical information design (overview → drill-down) to balance quick insights with deeper analytical exploration.",
+      "Prioritised real-time data interaction (auto-refresh and timestamps) to address limitations of delayed data systems."
     ],
     what_i_would_improve_next: [
-      "Conduct large-scale user testing with diverse stakeholder groups to validate usability and refine interaction design based on real behavioural data.",
-      "Integrate real institutional data sources to replace simulated datasets, enabling validation of data pipelines, data quality, and real-world system performance.",
-      "Introduce predictive analytics capabilities (e.g., enrolment forecasting, risk detection) using historical data and machine learning models to support forward-looking decision-making.",
-      "Enhance data integration across systems (academic, HR, finance) to reduce manual cross-referencing and improve data consistency and reliability.",
-      "Improve data governance features, including data lineage, access control, and auditability, to increase trust in data and support enterprise-level usage.",
-      "Optimise dashboard complexity by introducing adaptive UI (e.g., progressive disclosure or role-based simplification) to better support users with different technical expertise."
+      "Integrate real institutional data sources to validate data pipelines and system performance in production environments.",
+      "Introduce predictive analytics (e.g., enrolment forecasting, risk detection) using historical data and machine learning models.",
+      "Improve data integration and governance across systems to enhance consistency, reliability, and trust in data.",
+      "Conduct large-scale user testing to refine usability and optimise interaction design based on real behavioural data."
     ],
     featured: true
   },

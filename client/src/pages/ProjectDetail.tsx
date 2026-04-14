@@ -125,42 +125,57 @@ export default function ProjectDetail() {
           )}
 
           {/* Meta Section */}
-          <div className="flex flex-col gap-12 py-12 mt-8 border-t-2 border-primary/10">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-mono text-sm font-bold">
-                  1
-                </div>
-                <h3 className="text-2xl font-bold tracking-tight">
-                  Key Design Decisions
-                </h3>
+          <div className="mt-16 bg-muted/30 border border-primary/10 rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-sm">
+            {/* Subtle background decoration */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+            
+            <div className="relative z-10">
+              <div className="mb-10 border-b border-border/60 pb-8">
+                <h2 className="text-3xl font-bold tracking-tight mb-3">Project Takeaways</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+                  A reflection on the core architectural choices made during development, the trade-offs considered, and the roadmap for future enhancements.
+                </p>
               </div>
-              <ul className="space-y-5">
-                {project.key_design_decisions?.map((point, i) => (
-                  <li key={i} className="text-base flex gap-4 leading-relaxed">
-                    <span className="text-primary font-bold text-lg mt-[-2px]">•</span> 
-                    <span className="text-foreground/90">{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-muted text-muted-foreground font-mono text-sm font-bold">
-                  2
+
+              <div className="flex flex-col gap-12">
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-mono text-sm font-bold">
+                      1
+                    </div>
+                    <h3 className="text-2xl font-bold tracking-tight">
+                      Design Decisions & Trade-offs
+                    </h3>
+                  </div>
+                  <ul className="space-y-4">
+                    {project.key_design_decisions?.map((point, i) => (
+                      <li key={i} className="text-base flex gap-4 leading-relaxed">
+                        <span className="text-primary font-bold text-lg mt-[-2px]">•</span> 
+                        <span className="text-foreground/90">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="text-2xl font-bold tracking-tight">
-                  Future Improvements
-                </h3>
+                
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-muted-foreground/10 text-muted-foreground font-mono text-sm font-bold">
+                      2
+                    </div>
+                    <h3 className="text-2xl font-bold tracking-tight">
+                      Future Considerations
+                    </h3>
+                  </div>
+                  <ul className="space-y-4">
+                    {project.what_i_would_improve_next?.map((point, i) => (
+                      <li key={i} className="text-base flex gap-4 leading-relaxed">
+                        <span className="text-muted-foreground/50 font-bold text-lg mt-[-2px]">•</span> 
+                        <span className="text-foreground/90">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <ul className="space-y-5">
-                {project.what_i_would_improve_next?.map((point, i) => (
-                  <li key={i} className="text-base flex gap-4 leading-relaxed">
-                    <span className="text-muted-foreground/50 font-bold text-lg mt-[-2px]">•</span> 
-                    <span className="text-foreground/90">{point}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>
