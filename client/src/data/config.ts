@@ -18,6 +18,13 @@ export const PORTFOLIO_CONFIG = {
   }
 };
 
+export type ProjectSection = {
+  title: string;
+  type?: "text" | "list";
+  content?: string;
+  items?: string[];
+};
+
 export type Project = {
   id: string;
   title: string;
@@ -26,9 +33,7 @@ export type Project = {
   tags: string[];
   tech_stack: string[];
   dataset_source: string;
-  problem: string;
-  approach: string;
-  key_results: string[];
+  sections: ProjectSection[];
   visuals: string[]; // paths to images
   links: {
     github?: string;
@@ -49,13 +54,27 @@ export const PROJECTS: Project[] = [
     tags: ["Data Visualisation", "Dashboard Design", "User Research", "Data Storytelling"],
     tech_stack: ["Miro", "Python", "Data Visualisation", "User Research"],
     dataset_source: "Australian National University internal academic data",
-    problem: "ANU faced challenges with fragmented data systems and siloed information across departments, making it difficult for stakeholders to access timely insights. Existing reporting tools were slow, outdated, and lacked customisation, limiting the ability of decision makers to analyse trends and respond quickly.",
-    approach: "Conducted stakeholder interviews to understand analytical needs across academic and administrative roles. Used affinity diagramming to identify common themes and data requirements. Designed low-fidelity prototypes followed by a high-fidelity interactive dashboard focused on key metrics such as course enrolment, grade distributions, and student activity indicators.",
-    key_results: [
-      "Designed a centralised dashboard concept integrating multiple institutional data sources.",
-      "Created intuitive visualisations that allow stakeholders to explore enrolment trends and academic performance.",
-      "Improved accessibility of key metrics through simplified visual layouts and role-based views.",
-      "Developed a scalable dashboard framework that can support future predictive analytics features."
+    sections: [
+      {
+        title: "Problem & Context",
+        type: "text",
+        content: "ANU faced challenges with fragmented data systems and siloed information across departments, making it difficult for stakeholders to access timely insights. Existing reporting tools were slow, outdated, and lacked customisation, limiting the ability of decision makers to analyse trends and respond quickly."
+      },
+      {
+        title: "Approach & Architecture",
+        type: "text",
+        content: "Conducted stakeholder interviews to understand analytical needs across academic and administrative roles. Used affinity diagramming to identify common themes and data requirements. Designed low-fidelity prototypes followed by a high-fidelity interactive dashboard focused on key metrics such as course enrolment, grade distributions, and student activity indicators."
+      },
+      {
+        title: "Key Results",
+        type: "list",
+        items: [
+          "Designed a centralised dashboard concept integrating multiple institutional data sources.",
+          "Created intuitive visualisations that allow stakeholders to explore enrolment trends and academic performance.",
+          "Improved accessibility of key metrics through simplified visual layouts and role-based views.",
+          "Developed a scalable dashboard framework that can support future predictive analytics features."
+        ]
+      }
     ],
     visuals: [
       "/assets/images/anu-dashboard-poster.jpg",
@@ -83,12 +102,26 @@ export const PROJECTS: Project[] = [
     tags: ["Deep Learning", "Image Classification", "Computer Vision"],
     tech_stack: ["Python", "PyTorch", "Torchvision", "ResNet18", "scikit‑learn", "Streamlit", "Hugging Face Spaces"],
     dataset_source: "Oxford‑IIIT Pet dataset",
-    problem: "While there are many deep learning tutorials that simply use pre-built APIs, this project involves building a complete machine learning pipeline from scratch. This includes data acquisition, preprocessing, model building, training, evaluation, and deployment.\n\nCommon challenges in image classification include class imbalance, background noise, and overfitting. This project addresses these issues through data augmentation and regularization strategies.",
-    approach: "Constructed the model using PyTorch and Torchvision, leveraging a pre-trained ResNet18 network and fine-tuning the final fully connected layer for binary classification.\n\nImplemented data augmentation techniques such as random horizontal flips, color jitter, and normalization to improve model generalization.\n\nConfigured training for 5 epochs with a batch size of 32 and a learning rate of 1e-3, utilizing a cross-entropy loss function and Adam optimizer.\n\nMonitored accuracy on the validation set during training to save the best-performing model.\n\nEvaluated model performance using scikit-learn's classification_report and confusion_matrix.",
-    key_results: [
-      "The model performed exceptionally well on the test set, achieving an accuracy and F1 score between 0.93 and 0.95, demonstrating its effectiveness in distinguishing between cats and dogs.",
-      "The confusion matrix indicated very low misclassification rates for both categories.",
-      "Through the Streamlit application, users can upload images and view real-time predictions and confidence scores. The interface provides image previews, predicted labels, and probability distributions."
+    sections: [
+      {
+        title: "Problem & Context",
+        type: "text",
+        content: "While there are many deep learning tutorials that simply use pre-built APIs, this project involves building a complete machine learning pipeline from scratch. This includes data acquisition, preprocessing, model building, training, evaluation, and deployment.\n\nCommon challenges in image classification include class imbalance, background noise, and overfitting. This project addresses these issues through data augmentation and regularization strategies."
+      },
+      {
+        title: "Approach & Architecture",
+        type: "text",
+        content: "Constructed the model using PyTorch and Torchvision, leveraging a pre-trained ResNet18 network and fine-tuning the final fully connected layer for binary classification.\n\nImplemented data augmentation techniques such as random horizontal flips, color jitter, and normalization to improve model generalization.\n\nConfigured training for 5 epochs with a batch size of 32 and a learning rate of 1e-3, utilizing a cross-entropy loss function and Adam optimizer.\n\nMonitored accuracy on the validation set during training to save the best-performing model.\n\nEvaluated model performance using scikit-learn's classification_report and confusion_matrix."
+      },
+      {
+        title: "Key Results",
+        type: "list",
+        items: [
+          "The model performed exceptionally well on the test set, achieving an accuracy and F1 score between 0.93 and 0.95, demonstrating its effectiveness in distinguishing between cats and dogs.",
+          "The confusion matrix indicated very low misclassification rates for both categories.",
+          "Through the Streamlit application, users can upload images and view real-time predictions and confidence scores. The interface provides image previews, predicted labels, and probability distributions."
+        ]
+      }
     ],
     visuals: [
       "/assets/images/pet-classifier.png"
@@ -131,13 +164,27 @@ export const PROJECTS: Project[] = [
       "Entity Resolution"
     ],
     dataset_source: "Public web data (company websites, search results, external business profiles)",
-    problem: "Company data from the open web is noisy, inconsistent, and difficult to trust at scale. Search results often include irrelevant pages, while key attributes such as company name, logo, description, and office locations appear in conflicting formats across sources. A naive LLM-first approach is costly and lacks controllability, making it unsuitable for large-scale enrichment.",
-    approach: "Designed a hybrid enrichment pipeline that filters raw search results to likely official company websites, followed by parallel extraction of key attributes (name, logo, description, office, contact, and social profiles). Candidate values are ranked using rule-based scoring and cross-source consistency checks. LLM validation is applied only to low-confidence cases. A final deduplication stage resolves duplicate entities before outputting clean, database-ready records.",
-    key_results: [
-      "Expanded the company database by 10% through automated enrichment from web sources.",
-      "Improved data completeness by 50% by consolidating multi-source signals and resolving missing attributes.",
-      "Reduced reliance on LLM calls through a deterministic-first decision framework, lowering operational cost.",
-      "Delivered deduplicated, database-ready company records for downstream analytics and applications."
+    sections: [
+      {
+        title: "Problem & Context",
+        type: "text",
+        content: "Company data from the open web is noisy, inconsistent, and difficult to trust at scale. Search results often include irrelevant pages, while key attributes such as company name, logo, description, and office locations appear in conflicting formats across sources. A naive LLM-first approach is costly and lacks controllability, making it unsuitable for large-scale enrichment."
+      },
+      {
+        title: "Approach & Architecture",
+        type: "text",
+        content: "Designed a hybrid enrichment pipeline that filters raw search results to likely official company websites, followed by parallel extraction of key attributes (name, logo, description, office, contact, and social profiles). Candidate values are ranked using rule-based scoring and cross-source consistency checks. LLM validation is applied only to low-confidence cases. A final deduplication stage resolves duplicate entities before outputting clean, database-ready records."
+      },
+      {
+        title: "Key Results",
+        type: "list",
+        items: [
+          "Expanded the company database by 10% through automated enrichment from web sources.",
+          "Improved data completeness by 50% by consolidating multi-source signals and resolving missing attributes.",
+          "Reduced reliance on LLM calls through a deterministic-first decision framework, lowering operational cost.",
+          "Delivered deduplicated, database-ready company records for downstream analytics and applications."
+        ]
+      }
     ],
     visuals: [
       "/assets/images/company-enrichment-architecture.png"

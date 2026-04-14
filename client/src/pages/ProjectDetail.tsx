@@ -73,15 +73,28 @@ export default function ProjectDetail() {
       <div className="flex flex-col sm:flex-row gap-8 lg:gap-16 items-start">
         {/* Main Content (Left) */}
         <div className="flex-1 space-y-12 w-full min-w-0">
-          <section>
-            <h2 className="text-2xl font-bold tracking-tight mb-4 border-b pb-2">Problem & Context</h2>
-            <p className="text-muted-foreground leading-relaxed whitespace-pre-wrap">{project.problem}</p>
-          </section>
+          {project.sections.map((section, idx) => (
+            <section key={idx}>
+              <h2 className="text-2xl font-bold tracking-tight mb-4 border-b pb-2">
+                {section.title}
+              </h2>
 
-          <section>
-            <h2 className="text-2xl font-bold tracking-tight mb-4 border-b pb-2">Approach & Architecture</h2>
-            <p className="text-muted-foreground leading-relaxed whitespace-pre-wrap">{project.approach}</p>
-          </section>
+              {section.type === "list" ? (
+                <ul className="space-y-3">
+                  {section.items?.map((item, i) => (
+                    <li key={i} className="flex gap-3 text-muted-foreground">
+                      <span className="text-primary font-bold">•</span>
+                      <span className="leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
+                  {section.content}
+                </p>
+              )}
+            </section>
+          ))}
           
           {project.visuals[1] && (
             <section className="my-12">
@@ -95,18 +108,6 @@ export default function ProjectDetail() {
               <p className="text-center text-sm text-muted-foreground mt-4 font-mono italic">High-fidelity dashboard interface design focusing on key institutional metrics.</p>
             </section>
           )}
-
-          <section>
-            <h2 className="text-2xl font-bold tracking-tight mb-4 border-b pb-2">Key Results</h2>
-            <ul className="space-y-3">
-              {project.key_results.map((result, i) => (
-                <li key={i} className="flex gap-3 text-muted-foreground">
-                  <span className="text-primary font-bold">•</span> 
-                  <span className="leading-relaxed">{result}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
 
           <Separator />
 
