@@ -56,39 +56,23 @@ export const PROJECTS: Project[] = [
     dataset_source: "Australian National University internal academic data",
     sections: [
       {
-        title: "Context & Problem",
+        title: "Problem & Context",
         type: "text",
-        content: `The Australian National University operates across multiple departments with fragmented data systems, making it difficult for decision-makers to access timely and consistent insights.\n\nExisting reporting processes were slow and heavily dependent on static reports, limiting the ability of stakeholders to monitor trends, identify risks, and respond proactively to changes in student performance and engagement.`},
-      {
-        title: "Stakeholder Needs & Challenges",
-        type: "text",
-        content: `Through stakeholder analysis, it became clear that different roles (executives, academic staff, and administrators) required access to the same underlying data but with different levels of abstraction and focus.\n\nKey challenges included:
-- Lack of a unified view of institutional performance
-- Difficulty in tracking trends across courses and cohorts
-- Overly complex or cluttered reports that hinder decision-making`},
-      {
-        title: "Dashboard Design Approach",
-        type: "text",
-        content: `A user-centred design approach was adopted to translate stakeholder needs into a structured dashboard interface.\n\nThe design focused on:\n- Prioritising high-impact metrics relevant across roles\n- Structuring information hierarchically to support both quick insights and deeper exploration\n- Reducing cognitive load through clean layouts and intuitive visual encoding\n\nPrototypes were iteratively refined from low-fidelity wireframes to a high-fidelity dashboard interface.`
+        content: "ANU faced challenges with fragmented data systems and siloed information across departments, making it difficult for stakeholders to access timely insights. Existing reporting tools were slow, outdated, and lacked customisation, limiting the ability of decision makers to analyse trends and respond quickly."
       },
       {
-        title: "Key Metrics & Insights",
-        type: "list",
-        items: [
-          "Course enrolment trends across semesters to identify growth or decline patterns",
-          "Grade distribution analysis to detect performance anomalies and potential risk areas",
-          "Student engagement indicators to monitor participation and retention signals",
-          "Cross-course comparisons to support resource allocation and curriculum planning"
-        ]
+        title: "Approach & Architecture",
+        type: "text",
+        content: "Conducted stakeholder interviews to understand analytical needs across academic and administrative roles. Used affinity diagramming to identify common themes and data requirements. Designed low-fidelity prototypes followed by a high-fidelity interactive dashboard focused on key metrics such as course enrolment, grade distributions, and student activity indicators."
       },
       {
-        title: "Impact & Outcomes",
+        title: "Key Results",
         type: "list",
         items: [
-          "Designed a centralised dashboard concept to replace fragmented reporting workflows",
-          "Improved accessibility of key institutional metrics for multiple stakeholder groups",
-          "Enabled faster identification of performance trends and potential risks",
-          "Established a scalable foundation for future predictive analytics and data-driven planning"
+          "Designed a centralised dashboard concept integrating multiple institutional data sources.",
+          "Created intuitive visualisations that allow stakeholders to explore enrolment trends and academic performance.",
+          "Improved accessibility of key metrics through simplified visual layouts and role-based views.",
+          "Developed a scalable dashboard framework that can support future predictive analytics features."
         ]
       }
     ],

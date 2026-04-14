@@ -70,26 +70,26 @@ export default function ProjectDetail() {
         </div>
       )}
 
-      <div className="flex flex-col sm:flex-row gap-10 lg:gap-20 items-start">
+      <div className="flex flex-col sm:flex-row gap-8 lg:gap-16 items-start">
         {/* Main Content (Left) */}
-        <div className="flex-1 space-y-16 w-full min-w-0 max-w-[70ch] mx-auto sm:mx-0">
+        <div className="flex-1 space-y-12 w-full min-w-0">
           {project.sections.map((section, idx) => (
             <section key={idx}>
-              <h2 className="text-3xl font-semibold tracking-tight mb-6 text-foreground/90">
+              <h2 className="text-2xl font-bold tracking-tight mb-4 border-b pb-2">
                 {section.title}
               </h2>
 
               {section.type === "list" ? (
-                <ul className="space-y-4">
+                <ul className="space-y-3">
                   {section.items?.map((item, i) => (
-                    <li key={i} className="flex gap-4 text-muted-foreground/90 text-lg leading-relaxed items-start">
-                      <span className="text-primary font-bold mt-1">•</span>
-                      <span className="flex-1">{item}</span>
+                    <li key={i} className="flex gap-3 text-muted-foreground">
+                      <span className="text-primary font-bold">•</span>
+                      <span className="leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-lg text-muted-foreground/90 leading-[1.8] whitespace-pre-wrap font-medium">
+                <p className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
                   {section.content}
                 </p>
               )}
@@ -112,31 +112,29 @@ export default function ProjectDetail() {
           <Separator />
 
           {/* Meta Section */}
-          <div className="grid md:grid-cols-2 gap-10 bg-card border border-border/50 rounded-2xl p-8 shadow-sm mt-12">
+          <div className="grid md:grid-cols-2 gap-8 bg-card border rounded-xl p-8 shadow-sm">
             <div>
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-3 text-foreground/90">
-                <span className="w-2.5 h-6 bg-primary rounded-full inline-block"></span>
+              <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="w-2 h-6 bg-primary rounded-full inline-block"></span>
                 Key Design Decisions
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-2">
                 {project.key_design_decisions?.map((point, i) => (
-                  <li key={i} className="text-base text-muted-foreground/90 flex gap-3 leading-relaxed items-start">
-                    <span className="text-primary/50 mt-1">-</span> 
-                    <span className="flex-1">{point}</span>
+                  <li key={i} className="text-sm text-muted-foreground flex gap-2">
+                    <span className="text-primary/50">-</span> {point}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-3 text-foreground/90">
-                <span className="w-2.5 h-6 bg-muted-foreground rounded-full inline-block"></span>
+              <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                <span className="w-2 h-6 bg-muted-foreground rounded-full inline-block"></span>
                 Future Improvements
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-2">
                 {project.what_i_would_improve_next?.map((point, i) => (
-                  <li key={i} className="text-base text-muted-foreground/90 flex gap-3 leading-relaxed items-start">
-                    <span className="text-muted-foreground/50 mt-1">-</span> 
-                    <span className="flex-1">{point}</span>
+                  <li key={i} className="text-sm text-muted-foreground flex gap-2">
+                    <span className="text-muted-foreground/50">-</span> {point}
                   </li>
                 ))}
               </ul>
@@ -145,7 +143,7 @@ export default function ProjectDetail() {
         </div>
 
         {/* Sidebar (Right) */}
-        <aside className="w-full sm:w-64 md:w-72 lg:w-80 shrink-0 sm:sticky sm:top-28 space-y-8 bg-muted/30 border border-border/50 rounded-2xl p-6 shadow-sm self-start max-h-[calc(100vh-8rem)] overflow-y-auto">
+        <aside className="w-full sm:w-64 md:w-72 lg:w-80 shrink-0 sm:sticky sm:top-24 space-y-8 bg-muted/20 border rounded-xl p-6 shadow-sm self-start max-h-[calc(100vh-7rem)] overflow-y-auto">
           <div>
             <h3 className="font-semibold flex items-center gap-2 mb-4 text-sm text-muted-foreground">
               <Server className="h-4 w-4" /> Project Links
