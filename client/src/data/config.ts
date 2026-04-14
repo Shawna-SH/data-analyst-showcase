@@ -58,39 +58,56 @@ export const PROJECTS: Project[] = [
       {
         title: "Context & Problem",
         type: "text",
-        content: `The Australian National University operates across multiple departments with fragmented data systems, making it difficult for decision-makers to access timely and consistent insights.\n\nExisting reporting processes were slow and heavily dependent on static reports, limiting the ability of stakeholders to monitor trends, identify risks, and respond proactively to changes in student performance and engagement.
+        content: `The Australian National University (ANU) operates across multiple departments with fragmented data systems, resulting in inconsistent data access and limited visibility for decision-makers.
+
+    Stakeholders rely on multiple platforms (e.g., SAS, Insight), where data updates are often delayed (e.g., overnight refresh cycles), reducing the effectiveness of time-sensitive decision-making. This leads to inefficiencies in monitoring academic performance, identifying at-risk students, and allocating resources.
+
+    The project aims to design a centralised executive dashboard to unify data access, improve data transparency, and enable faster, data-driven decision-making across academic and administrative functions.
     `
       },
+
       {
         title: "Stakeholder Needs & Challenges",
         type: "text",
-        content: `Through stakeholder analysis, it became clear that different roles (executives, academic staff, and administrators) required access to the same underlying data but with different levels of abstraction and focus.\n\nKey challenges included:\n- Lack of a unified view of institutional performance\n- Difficulty in tracking trends across courses and cohorts\n- Overly complex or cluttered reports that hinder decision-making
+        content: `Stakeholder requirements were identified through semi-structured interviews with 5 participants across academic, administrative, and management roles.
+
+    Analysis revealed that while all stakeholders rely heavily on data, their needs differ significantly in granularity and use cases. Academic staff focus on student performance and enrolment trends, while administrative staff require HR and financial data for operational planning.
+
+    Key systemic challenges include fragmented data sources, lack of real-time access, and limited customisation in existing reporting tools, leading to inefficient workflows and reduced trust in data consistency.
     `
       },
+
       {
         title: "Dashboard Design Approach",
         type: "text",
-        content: `A user-centred design approach was adopted to translate stakeholder needs into a structured dashboard interface.\n\nThe design focused on:\n- Prioritising high-impact metrics relevant across roles\n- Structuring information hierarchically to support both quick insights and deeper exploration\n- Reducing cognitive load through clean layouts and intuitive visual encoding\n\nPrototypes were iteratively refined from low-fidelity wireframes to a high-fidelity dashboard interface.
+        content: `A user-centred design methodology was applied, combining qualitative research and iterative prototyping to translate stakeholder requirements into a scalable dashboard system.
+
+    The design process incorporated affinity diagramming to cluster interview insights into actionable themes, followed by high-fidelity prototyping to simulate real-world usage scenarios.
+
+    The system architecture prioritises modular dashboard components, role-based personalisation, and interactive visualisation layers to support both high-level overview and deep analytical exploration.
     `
       },
+
       {
         title: "Key Metrics & Insights",
         type: "list",
         items: [
-          "Course enrolment trends across semesters to identify growth or decline patterns",
-          "Grade distribution analysis to detect performance anomalies and potential risk areas",
-          "Student engagement indicators to monitor participation and retention signals",
-          "Cross-course comparisons to support resource allocation and curriculum planning"
+          "Temporal analysis of course enrolment trends to identify growth patterns and anomalies across semesters",
+          "Distribution analysis of student grades to detect performance outliers and potential academic risk signals",
+          "Engagement indicators (e.g., submissions, participation) to monitor student activity and retention risks",
+          "Cross-course comparative metrics to support resource allocation and curriculum optimisation"
         ]
       },
+
       {
         title: "Impact & Outcomes",
         type: "list",
         items: [
-          "Designed a centralised dashboard concept to replace fragmented reporting workflows",
-          "Improved accessibility of key institutional metrics for multiple stakeholder groups",
-          "Enabled faster identification of performance trends and potential risks",
-          "Established a scalable foundation for future predictive analytics and data-driven planning"
+          "Designed a high-fidelity dashboard prototype integrating multiple data domains (academic, HR, and operational)",
+          "Reduced data access friction by consolidating previously siloed data sources into a unified interface",
+          "Enabled near real-time data interaction through auto-refresh mechanisms (designed for ~5-minute update cycles)",
+          "Improved decision-making efficiency by structuring data hierarchically and prioritising actionable metrics",
+          "Established a scalable design foundation for future extensions, including predictive analytics and role-based expansion"
         ]
       }
     ],
@@ -100,15 +117,20 @@ export const PROJECTS: Project[] = [
     ],
     links: {},
     key_design_decisions: [
-      "Prioritised a user-centred design approach by aligning dashboard structure with stakeholder decision-making needs.",
-      "Balanced information density and clarity to support both quick executive insights and deeper exploration.",
-      "Selected key academic metrics based on cross-role relevance rather than data availability alone.",
-      "Designed modular visual components to allow future integration of predictive analytics features."
+      "Adopted a user-centred design approach based on qualitative stakeholder interviews (n=5), ensuring the dashboard structure aligns with real decision-making workflows rather than assumed requirements.",
+      "Prioritised a modular and role-based dashboard architecture, enabling different user groups (academic, administrative, management) to access relevant metrics without overloading the interface.",
+      "Implemented hierarchical information design (overview → drill-down), allowing users to quickly capture high-level insights while supporting deeper analytical exploration when needed.",
+      "Selected visualisation types based on analytical tasks (temporal, categorical, spatial) to improve interpretability and reduce cognitive load, rather than using generic chart templates.",
+      "Designed for near real-time data interaction (auto-refresh and timestamp indicators) to address limitations of existing systems with delayed data updates and improve decision timeliness.",
+      "Balanced flexibility and usability by introducing interactive features (filters, customisation, drill-down) while maintaining a clean and structured layout to avoid information overload."
     ],
     what_i_would_improve_next: [
-      "Integrate real-time institutional data sources for live dashboard updates.",
-      "Add predictive analytics features such as enrolment forecasting.",
-      "Introduce advanced filtering and search capabilities for deeper exploration."
+      "Conduct large-scale user testing with diverse stakeholder groups to validate usability and refine interaction design based on real behavioural data.",
+      "Integrate real institutional data sources to replace simulated datasets, enabling validation of data pipelines, data quality, and real-world system performance.",
+      "Introduce predictive analytics capabilities (e.g., enrolment forecasting, risk detection) using historical data and machine learning models to support forward-looking decision-making.",
+      "Enhance data integration across systems (academic, HR, finance) to reduce manual cross-referencing and improve data consistency and reliability.",
+      "Improve data governance features, including data lineage, access control, and auditability, to increase trust in data and support enterprise-level usage.",
+      "Optimise dashboard complexity by introducing adaptive UI (e.g., progressive disclosure or role-based simplification) to better support users with different technical expertise."
     ],
     featured: true
   },
