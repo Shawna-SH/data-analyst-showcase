@@ -89,9 +89,25 @@ export default function ProjectDetail() {
                   ))}
                 </ul>
               ) : (
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
-                  {section.content}
-                </p>
+                <div className="text-muted-foreground leading-relaxed">
+                  {section.content?.split('\n').map((line, i, arr) => {
+                    const trimmedLine = line.trim();
+                    if (trimmedLine.startsWith('-')) {
+                      return (
+                        <div key={i} className="flex gap-3 my-2 ml-1">
+                          <span className="text-primary font-bold">•</span>
+                          <span>{trimmedLine.substring(1).trim()}</span>
+                        </div>
+                      );
+                    }
+                    return (
+                      <span key={i}>
+                        {line}
+                        {i < arr.length - 1 && <br />}
+                      </span>
+                    );
+                  })}
+                </div>
               )}
             </section>
           ))}
