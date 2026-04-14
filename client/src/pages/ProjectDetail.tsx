@@ -121,14 +121,11 @@ export default function ProjectDetail() {
                   className="w-full h-auto object-contain p-2"
                 />
               </div>
-              <p className="text-center text-sm text-muted-foreground mt-4 font-mono italic">High-fidelity dashboard interface design focusing on key institutional metrics.</p>
             </section>
           )}
 
-          <Separator />
-
           {/* Meta Section */}
-          <div className="grid md:grid-cols-2 gap-16 py-12 mt-16 border-t-2 border-primary/10">
+          <div className="flex flex-col gap-12 py-12 mt-8 border-t-2 border-primary/10">
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-mono text-sm font-bold">
