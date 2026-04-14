@@ -1,0 +1,8 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "enKR8zidLQw0S4UpTF4wU"
+uri = "file://client/public/favicon.png"
+type = "image"
+title = "Minimalist data portfolio favicon"
