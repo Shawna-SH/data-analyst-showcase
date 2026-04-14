@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Menu, X, FileText } from "lucide-react";
 import { useState } from "react";
@@ -6,6 +6,7 @@ import { PORTFOLIO_CONFIG } from "@/data/config";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [location] = useLocation();
   const { personalInfo } = PORTFOLIO_CONFIG;
 
   const links = [
@@ -27,13 +28,16 @@ export function Navigation() {
         {/* Desktop Nav */}
         <div className="hidden md:flex md:flex-1 md:items-center md:justify-between ml-8">
           <div className="flex gap-6 text-sm font-medium">
-            {links.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <span className="transition-colors hover:text-primary cursor-pointer text-muted-foreground hover:text-foreground">
-                  {link.label}
-                </span>
-              </Link>
-            ))}
+            {links.map((link) => {
+              const isActive = link.href === "/" ? location === "/" : location.startsWith(link.href);
+              return (
+                <Link key={link.href} href={link.href}>
+                  <span className={`transition-colors cursor-pointer ${isActive ? 'text-primary font-bold' : 'text-muted-foreground hover:text-foreground'}`}>
+                    {link.label}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
 
           <div className="flex items-center space-x-4">
@@ -64,16 +68,19 @@ export function Navigation() {
       {isOpen && (
         <div className="container md:hidden pb-4 pt-2 border-t">
           <div className="flex flex-col space-y-3">
-            {links.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <span 
-                  className="block px-2 py-1 text-base font-medium text-muted-foreground hover:text-foreground"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </span>
-              </Link>
-            ))}
+            {links.map((link) => {
+              const isActive = link.href === "/" ? location === "/" : location.startsWith(link.href);
+              return (
+                <Link key={link.href} href={link.href}>
+                  <span 
+                    className={`block px-2 py-1 text-base font-medium ${isActive ? 'text-primary font-bold' : 'text-muted-foreground hover:text-foreground'}`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </span>
+                </Link>
+              );
+            })}
             <div className="flex items-center gap-4 pt-4 px-2 border-t">
                <a href={personalInfo.github} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Github className="h-5 w-5" />
