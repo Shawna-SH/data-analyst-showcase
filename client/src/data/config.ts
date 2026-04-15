@@ -132,8 +132,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "pet-image-classifier",
-    title: "Pet Image Classifier (Cat vs Dog)",
-    short_summary: "Built and deployed a binary classification model using PyTorch to distinguish between cats and dogs, featuring an interactive Streamlit web application.",
+    title: "Pet Image Classification System with Transfer Learning",
+    short_summary: "Built and deployed a binary classification model using PyTorch to distinguish between cats and dogs, achiving over 94% validation accuracy with a lightweight deployment-ready architecture.",
     role: "Machine Learning",
     tags: ["Deep Learning", "Image Classification", "Computer Vision"],
     tech_stack: ["Python", "PyTorch", "Torchvision", "ResNet18", "scikit‑learn", "Streamlit", "Hugging Face Spaces"],
@@ -142,7 +142,7 @@ export const PROJECTS: Project[] = [
       {
         title: "Problem & Context",
         type: "text",
-        content: "While there are many deep learning tutorials that simply use pre-built APIs, this project involves building a complete machine learning pipeline from scratch. This includes data acquisition, preprocessing, model building, training, evaluation, and deployment.\n\nCommon challenges in image classification include class imbalance, background noise, and overfitting. This project addresses these issues through data augmentation and regularization strategies."
+        content: "Image classification for pets is a common problem in real-world applications such as veterinary systems, pet adoption platforms, and mobile apps.\n\nHowever, training accurate models from scratch is data-intensive and computationally expensive.\n\nThis project explores how transfer learning can be used to build an efficient and high-performing classification system with limited data."
       },
       {
         title: "Approach & Architecture",
@@ -153,9 +153,10 @@ export const PROJECTS: Project[] = [
         title: "Key Results",
         type: "list",
         items: [
-          "The model performed exceptionally well on the test set, achieving an accuracy and F1 score between 0.93 and 0.95, demonstrating its effectiveness in distinguishing between cats and dogs.",
-          "The confusion matrix indicated very low misclassification rates for both categories.",
-          "Through the Streamlit application, users can upload images and view real-time predictions and confidence scores. The interface provides image previews, predicted labels, and probability distributions."
+          "Achieved strong performance on unseen data, with validation accuracy and F1 score consistently between 0.93 and 0.95, demonstrating reliable classification of cats and dogs.",
+          "Model generalised well across variations in lighting conditions, backgrounds, and image quality, indicating robustness beyond the training distribution.",
+          "Confusion matrix analysis showed low misclassification rates for both classes, with balanced performance between precision and recall.",
+          "Deployed an interactive Streamlit application that enables real-time image classification, including predicted labels and confidence scores for user-uploaded images."
         ]
       }
     ],
@@ -167,14 +168,16 @@ export const PROJECTS: Project[] = [
       demo: "/demos/pet-classifier" // Link to internal demo
     },
     key_design_decisions: [
-      "Leveraged a pre-trained ResNet18 model to balance performance and training efficiency.",
-      "Applied data augmentation techniques to mitigate overfitting and improve generalisation.",
-      "Used validation-based checkpointing to ensure the best-performing model was retained.",
-      "Designed an interactive deployment interface to make model predictions accessible to non-technical users."
+      "Leveraged a pre-trained ResNet18 backbone to balance model performance with computational efficiency, avoiding the cost of training from scratch.",
+      "Applied targeted data augmentation to improve generalisation under varying real-world conditions such as lighting and background differences.",
+      "Used validation-based checkpointing to systematically select the best-performing model and mitigate overfitting during training.",
+      "Designed a lightweight Streamlit interface to bridge model outputs with end users, enabling accessible and interpretable predictions."
     ],
     what_i_would_improve_next: [
-      "Experiment with more complex architectures (such as EfficientNet or Vision Transformers) and expand to multi-breed classification tasks.",
-      "Deploy the application to a cloud-based GPU service to achieve faster inference speeds."
+      "Scale the dataset and extend the task to multi-class pet breed classification to improve model applicability in real-world scenarios.",
+      "Experiment with more advanced architectures such as EfficientNet or Vision Transformers to evaluate performance gains versus computational cost.",
+      "Deploy the model as a cloud-based inference API to support real-time predictions and improve scalability beyond local environments.",
+      "Integrate model explainability techniques (e.g. Grad-CAM) to provide visual insights into model decision-making."
     ],
     featured: true
   },
