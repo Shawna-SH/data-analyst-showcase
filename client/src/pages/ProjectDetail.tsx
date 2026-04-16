@@ -191,9 +191,15 @@ export default function ProjectDetail() {
             <div className="flex flex-col gap-3">
               {project.links.demo && (
                 <Button asChild className="w-full font-mono font-medium shadow-sm">
-                  <Link href={project.links.demo}>
-                    <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-                  </Link>
+                  {project.links.demo.startsWith('http') ? (
+                    <a href={project.links.demo} target="_blank" rel="noreferrer">
+                      <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                    </a>
+                  ) : (
+                    <Link href={project.links.demo}>
+                      <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                    </Link>
+                  )}
                 </Button>
               )}
               {project.links.github && (
