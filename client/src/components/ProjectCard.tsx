@@ -72,16 +72,30 @@ export function ProjectCard({ project }: ProjectCardProps) {
       
       <CardFooter className="pt-0 flex justify-between items-center border-t border-border/50 pt-4 mt-4">
         <div className="flex gap-2">
-          {project.links.github && (
-            <a 
-              href={project.links.github} 
-              target="_blank" 
-              rel="noreferrer" 
-              className="text-muted-foreground hover:text-foreground transition-colors relative z-10"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Github className="h-4 w-4" />
-            </a>
+          {project.links.secondary?.map((link, idx) => (
+             <a 
+               key={idx}
+               href={link.url} 
+               target="_blank" 
+               rel="noreferrer" 
+               className="text-muted-foreground hover:text-foreground transition-colors relative z-10 text-xs font-mono"
+               onClick={(e) => e.stopPropagation()}
+               title={link.label}
+             >
+               {link.url.includes("github.com") ? <Github className="h-4 w-4" /> : link.label}
+             </a>
+          ))}
+          {project.links.primary && !project.links.primary.url.startsWith('/') && (
+             <a 
+               href={project.links.primary.url} 
+               target="_blank" 
+               rel="noreferrer" 
+               className="text-muted-foreground hover:text-foreground transition-colors relative z-10 text-xs font-mono"
+               onClick={(e) => e.stopPropagation()}
+               title={project.links.primary.label}
+             >
+               {project.links.primary.url.includes("github.com") ? <Github className="h-4 w-4" /> : "Link"}
+             </a>
           )}
         </div>
         <span className="text-sm font-medium text-primary hover:text-primary/80 flex items-center transition-colors">

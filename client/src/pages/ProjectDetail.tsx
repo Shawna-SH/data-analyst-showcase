@@ -189,27 +189,33 @@ export default function ProjectDetail() {
               <Server className="h-4 w-4" /> Project Links
             </h3>
             <div className="flex flex-col gap-3">
-              {project.links.demo && (
+              {project.links.primary && (
                 <Button asChild className="w-full font-mono font-medium shadow-sm">
-                  {project.links.demo.startsWith('http') ? (
-                    <a href={project.links.demo} target="_blank" rel="noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                  {project.links.primary.url.startsWith('http') ? (
+                    <a href={project.links.primary.url} target="_blank" rel="noreferrer">
+                      <ExternalLink className="mr-2 h-4 w-4" /> {project.links.primary.label}
                     </a>
                   ) : (
-                    <Link href={project.links.demo}>
-                      <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                    <Link href={project.links.primary.url}>
+                      <ExternalLink className="mr-2 h-4 w-4" /> {project.links.primary.label}
                     </Link>
                   )}
                 </Button>
               )}
-              {project.links.github && (
-                <Button asChild variant="outline" className="w-full font-mono font-medium border-border/60 hover:bg-muted/50">
-                  <a href={project.links.github} target="_blank" rel="noreferrer">
-                    <Github className="mr-2 h-4 w-4" /> View Source
-                  </a>
+              {project.links.secondary && project.links.secondary.map((link, idx) => (
+                <Button key={idx} asChild variant="outline" className="w-full font-mono font-medium border-border/60 hover:bg-muted/50">
+                  {link.url.startsWith('http') ? (
+                    <a href={link.url} target="_blank" rel="noreferrer">
+                      <ExternalLink className="mr-2 h-4 w-4" /> {link.label}
+                    </a>
+                  ) : (
+                    <Link href={link.url}>
+                      <ExternalLink className="mr-2 h-4 w-4" /> {link.label}
+                    </Link>
+                  )}
                 </Button>
-              )}
-              {Object.keys(project.links).length === 0 && (
+              ))}
+              {!project.links.primary && (!project.links.secondary || project.links.secondary.length === 0) && (
                 <div className="p-3 bg-muted/50 rounded-md border border-dashed border-border/50 text-center">
                   <span className="text-xs text-muted-foreground font-mono">Internal/Proprietary</span>
                 </div>

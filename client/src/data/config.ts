@@ -25,20 +25,24 @@ export type ProjectSection = {
   items?: string[];
 };
 
+export type ProjectActionLink = {
+  label: string;
+  url: string;
+};
+
 export type Project = {
   id: string;
   title: string;
   short_summary: string;
-  role: "Data Analyst" | "Data Engineer" | "Machine Learning";
+  role: "Data Analyst" | "Data Engineer" | "Machine Learning" | "Web Design";
   tags: string[];
   tech_stack: string[];
   dataset_source: string;
   sections: ProjectSection[];
   visuals: string[]; // paths to images
   links: {
-    github?: string;
-    demo?: string;
-    blog?: string;
+    primary?: ProjectActionLink;
+    secondary?: ProjectActionLink[];
   };
   key_design_decisions: string[];
   what_i_would_improve_next: string[];
@@ -164,8 +168,16 @@ export const PROJECTS: Project[] = [
       "/assets/images/pet-classifier.png"
     ],
     links: {
-      github: "https://github.com/Shawna-SH/pet-image-classifier",
-      demo: "/demos/pet-classifier" // Link to internal demo
+      primary: {
+        label: "Try Demo",
+        url: "/demos/pet-classifier"
+      },
+      secondary: [
+        {
+          label: "View Code",
+          url: "https://github.com/Shawna-SH/pet-image-classifier"
+        }
+      ]
     },
     key_design_decisions: [
       "Leveraged a pre-trained ResNet18 backbone to balance model performance with computational efficiency, avoiding the cost of training from scratch.",
@@ -229,7 +241,10 @@ export const PROJECTS: Project[] = [
       "/assets/images/company-enrichment-architecture.png"
     ],
     links: {
-      github: "https://github.com/Shawna-SH/Company-Enrichment-Pipeline-Case-Study"
+      primary: {
+        label: "View Code",
+        url: "https://github.com/Shawna-SH/Company-Enrichment-Pipeline-Case-Study"
+      }
     },
     what_i_would_improve_next: [
       "Enhance entity resolution to better handle subsidiaries, rebranding, and multi-location companies.",
@@ -278,7 +293,10 @@ export const PROJECTS: Project[] = [
       "/assets/images/chongqing-street-noodle.png"
     ],
     links: {
-      demo: "https://www.chongqingstreetnoodle.com"
+      primary: {
+        label: "Visit Website",
+        url: "https://www.chongqingstreetnoodle.com"
+      }
     },
     key_design_decisions: [
       "Prioritised visual identity and atmosphere to differentiate the website from generic restaurant templates.",
