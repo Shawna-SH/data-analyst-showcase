@@ -10,12 +10,14 @@ import anuDashboardPosterImg from "@/assets/images/anu-dashboard-poster.jpg";
 import anuDashboardUiImg from "@/assets/images/anu-dashboard-ui.jpg";
 import petClassifierImg from "@/assets/images/pet-classifier-new.jpeg";
 import companyEnrichmentImg from "@/assets/images/company-enrichment-architecture.png";
+import chongqingNoodleImg from "@/assets/images/chongqing-street-noodle.png";
 
 const imageMap: Record<string, string> = {
   "/assets/images/anu-dashboard-poster.jpg": anuDashboardPosterImg,
   "/assets/images/anu-dashboard-ui.jpg": anuDashboardUiImg,
   "/assets/images/pet-classifier.png": petClassifierImg,
   "/assets/images/company-enrichment-architecture.png": companyEnrichmentImg,
+  "/assets/images/chongqing-street-noodle.png": chongqingNoodleImg,
 };
 
 export default function ProjectDetail() {
@@ -61,11 +63,11 @@ export default function ProjectDetail() {
       </div>
 
       {project.visuals[0] && (
-        <div className={`w-full rounded-xl overflow-hidden border mb-12 shadow-sm relative group bg-muted/20 flex justify-center items-center ${project.id === 'pet-classifier' ? 'aspect-auto py-12' : 'aspect-[4/3]'}`}>
+        <div className={`w-full rounded-xl overflow-hidden border mb-12 shadow-sm relative group bg-muted/20 flex justify-center items-center ${project.id === 'pet-image-classifier' ? 'aspect-auto py-12' : 'aspect-[4/3]'}`}>
           <img 
             src={project.visuals[0]} 
             alt={`${project.title} - Overview`} 
-            className={`object-contain ${project.id === 'pet-classifier' ? 'h-[400px] w-auto rounded-xl shadow-2xl' : 'w-full h-full p-4'}`}
+            className={`object-contain ${project.id === 'pet-image-classifier' ? 'h-[400px] w-auto rounded-xl shadow-2xl' : 'w-full h-full p-4'}`}
           />
         </div>
       )}

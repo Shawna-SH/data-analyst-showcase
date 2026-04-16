@@ -128,12 +128,12 @@ export const PROJECTS: Project[] = [
       "Improve data integration and governance across systems to enhance consistency, reliability, and trust in data.",
       "Conduct large-scale user testing to refine usability and optimise interaction design based on real behavioural data."
     ],
-    featured: true
+    featured: false
   },
   {
     id: "pet-image-classifier",
     title: "Pet Image Classification System with Transfer Learning",
-    short_summary: "Built and deployed a binary classification model using PyTorch to distinguish between cats and dogs, achiving over 94% validation accuracy with a lightweight deployment-ready architecture.",
+    short_summary: "Designed and deployed a lightweight image classification system using PyTorch to distinguish between cats and dogs, achieving over 94% validation accuracy through transfer learning.",
     role: "Machine Learning",
     tags: ["Deep Learning", "Image Classification", "Computer Vision"],
     tech_stack: ["Python", "PyTorch", "Torchvision", "ResNet18", "scikit‑learn", "Streamlit", "Hugging Face Spaces"],
@@ -147,7 +147,7 @@ export const PROJECTS: Project[] = [
       {
         title: "Approach & Architecture",
         type: "text",
-        content: "Constructed the model using PyTorch and Torchvision, leveraging a pre-trained ResNet18 network and fine-tuning the final fully connected layer for binary classification.\n\nImplemented data augmentation techniques such as random horizontal flips, color jitter, and normalization to improve model generalization.\n\nConfigured training for 5 epochs with a batch size of 32 and a learning rate of 1e-3, utilizing a cross-entropy loss function and Adam optimizer.\n\nMonitored accuracy on the validation set during training to save the best-performing model.\n\nEvaluated model performance using scikit-learn's classification_report and confusion_matrix."
+        content: "Designed and implemented a transfer learning–based image classification pipeline using PyTorch and Torchvision, leveraging a pre-trained ResNet18 network and fine-tuning the final fully connected layer for binary classification.\n\nImplemented data augmentation techniques such as random horizontal flips, color jitter, and normalization to improve model generalization.\n\nConfigured training for 5 epochs with a batch size of 32 and a learning rate of 1e-3, utilizing a cross-entropy loss function and Adam optimizer.\n\nMonitored accuracy on the validation set during training to save the best-performing model.\n\nEvaluated model performance using scikit-learn's classification_report and confusion_matrix."
       },
       {
         title: "Key Results",
@@ -241,6 +241,56 @@ export const PROJECTS: Project[] = [
       "Designed parallel enrichment modules to improve throughput and system modularity.",
       "Applied cross-source validation to handle conflicting information from noisy web inputs.",
       "Introduced a final deduplication stage to resolve duplicate entities before storage."
+    ],
+    featured: true
+  },
+  {
+    id: "chongqing-street-noodle",
+    title: "Chongqing Street Noodle – Restaurant Website Design & Development",
+    short_summary: "Designed and built a branding-focused restaurant website, translating a physical dining experience into a cohesive digital interface with strong visual identity and user-focused layout.",
+    role: "Data Analyst",
+    tags: ["Web Design", "UX/UI", "User Research", "Rapid Prototyping", "Frontend Development"],
+    tech_stack: ["React", "Next.js", "Tailwind CSS", "Vercel"],
+    dataset_source: "Client Provided Branding & Menu Data",
+    sections: [
+      {
+        title: "Problem & Context",
+        type: "text",
+        content: "Many small restaurants rely on third-party platforms or outdated websites that fail to reflect their brand identity or dining experience.\n\nThis project focuses on designing a dedicated website for Chongqing Street Noodle, aiming to translate the restaurant’s physical atmosphere and visual identity into a cohesive digital experience.\n\nThe goal was not only to present information, but to create a strong first impression that aligns with the restaurant’s branding and appeals to potential customers."
+      },
+      {
+        title: "Approach & Design Thinking",
+        type: "text",
+        content: "Designed the website with a strong emphasis on visual storytelling and brand consistency, using colour, texture, and layout to reflect the restaurant’s interior aesthetic.\n\nFocused on a clean and intuitive user flow, ensuring key information such as menu, location, and contact details are easily accessible.\n\nStructured the layout to balance visual impact with usability, avoiding clutter while maintaining a distinctive visual identity.\n\nImplemented the website using a modern frontend framework, ensuring responsiveness across devices and smooth user interaction.\n\nIncorporated informal user feedback throughout the design process, iteratively refining layout, visual hierarchy, and content structure to better align with user expectations."
+      },
+      {
+        title: "Key Outcomes",
+        type: "list",
+        items: [
+          "Successfully translated the restaurant’s physical ambiance into a consistent digital visual identity.",
+          "Delivered a responsive and user-friendly interface across desktop and mobile devices.",
+          "Created a clear and structured layout that improves information accessibility for users.",
+          "Established a foundation for future extensions such as online ordering or reservation systems."
+        ]
+      }
+    ],
+    visuals: [
+      "/assets/images/chongqing-street-noodle.png"
+    ],
+    links: {
+      demo: "https://www.chongqingstreetnoodle.com"
+    },
+    key_design_decisions: [
+      "Prioritised visual identity and atmosphere to differentiate the website from generic restaurant templates.",
+      "Balanced aesthetic richness with usability to ensure the design remains intuitive and not overwhelming.",
+      "Structured content hierarchy to guide user attention towards key actions such as viewing the menu or locating the restaurant.",
+      "Designed with scalability in mind, allowing future integration of features such as online ordering or booking."
+    ],
+    what_i_would_improve_next: [
+      "Integrate an online ordering or reservation system to enhance user interaction.",
+      "Incorporate basic analytics to track user behaviour and optimise layout decisions.",
+      "Improve performance and SEO to increase discoverability through search engines.",
+      "Experiment with subtle animations and micro-interactions to further enhance user engagement."
     ],
     featured: true
   }
