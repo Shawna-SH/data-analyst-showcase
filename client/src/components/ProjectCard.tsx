@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge";
 import { useLocation } from "wouter";
 import { Project } from "@/data/config";
-import { ArrowRight, Github, Globe } from "lucide-react";
+import { ArrowRight, Github, Globe, AppWindow } from "lucide-react";
 
 interface ProjectCardProps {
   project: Project;
@@ -82,7 +82,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                onClick={(e) => e.stopPropagation()}
                title={link.label}
              >
-               {link.url.includes("github.com") ? <Github className="h-4 w-4" /> : <Globe className="h-4 w-4" />}
+               {link.url.includes("github.com") ? <Github className="h-4 w-4" /> : link.url.startsWith("http") ? <Globe className="h-4 w-4" /> : <AppWindow className="h-4 w-4" />}
              </a>
           ))}
           {project.links.primary && !project.links.primary.url.startsWith('/') && (
@@ -94,7 +94,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                onClick={(e) => e.stopPropagation()}
                title={project.links.primary.label}
              >
-               {project.links.primary.url.includes("github.com") ? <Github className="h-4 w-4" /> : <Globe className="h-4 w-4" />}
+               {project.links.primary.url.includes("github.com") ? <Github className="h-4 w-4" /> : project.links.primary.url.startsWith("http") ? <Globe className="h-4 w-4" /> : <AppWindow className="h-4 w-4" />}
              </a>
           )}
         </div>

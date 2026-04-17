@@ -1,6 +1,6 @@
 import { useParams, Link } from "wouter";
 import { PROJECTS } from "@/data/config";
-import { ArrowLeft, ExternalLink, Github, Database, Code2, Server, Globe } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Database, Code2, Server, Globe, AppWindow } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -197,7 +197,7 @@ export default function ProjectDetail() {
                     </a>
                   ) : (
                     <Link href={project.links.primary.url}>
-                      <Globe className="mr-2 h-4 w-4" /> {project.links.primary.label}
+                      <AppWindow className="mr-2 h-4 w-4" /> {project.links.primary.label}
                     </Link>
                   )}
                 </Button>
@@ -210,7 +210,7 @@ export default function ProjectDetail() {
                     </a>
                   ) : (
                     <Link href={link.url}>
-                      <Globe className="mr-2 h-4 w-4" /> {link.label}
+                      <AppWindow className="mr-2 h-4 w-4" /> {link.label}
                     </Link>
                   )}
                 </Button>
