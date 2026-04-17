@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge";
 import { useLocation } from "wouter";
 import { Project } from "@/data/config";
-import { ArrowRight, Github } from "lucide-react";
+import { ArrowRight, Github, Globe } from "lucide-react";
 
 interface ProjectCardProps {
   project: Project;
@@ -78,11 +78,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
                href={link.url} 
                target="_blank" 
                rel="noreferrer" 
-               className="text-muted-foreground hover:text-foreground transition-colors relative z-10 text-xs font-mono"
+               className="text-muted-foreground hover:text-foreground transition-colors relative z-10 text-xs font-mono flex items-center justify-center w-8 h-8 rounded-full bg-muted/50 hover:bg-muted"
                onClick={(e) => e.stopPropagation()}
                title={link.label}
              >
-               {link.url.includes("github.com") ? <Github className="h-4 w-4" /> : link.label}
+               {link.url.includes("github.com") ? <Github className="h-4 w-4" /> : <Globe className="h-4 w-4" />}
              </a>
           ))}
           {project.links.primary && !project.links.primary.url.startsWith('/') && (
@@ -90,11 +90,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
                href={project.links.primary.url} 
                target="_blank" 
                rel="noreferrer" 
-               className="text-muted-foreground hover:text-foreground transition-colors relative z-10 text-xs font-mono"
+               className="text-muted-foreground hover:text-foreground transition-colors relative z-10 text-xs font-mono flex items-center justify-center w-8 h-8 rounded-full bg-muted/50 hover:bg-muted"
                onClick={(e) => e.stopPropagation()}
                title={project.links.primary.label}
              >
-               {project.links.primary.url.includes("github.com") ? <Github className="h-4 w-4" /> : "Link"}
+               {project.links.primary.url.includes("github.com") ? <Github className="h-4 w-4" /> : <Globe className="h-4 w-4" />}
              </a>
           )}
         </div>

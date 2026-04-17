@@ -1,6 +1,6 @@
 import { useParams, Link } from "wouter";
 import { PROJECTS } from "@/data/config";
-import { ArrowLeft, ExternalLink, Github, Database, Code2, Server } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Database, Code2, Server, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -193,11 +193,11 @@ export default function ProjectDetail() {
                 <Button asChild className="w-full font-mono font-medium shadow-sm">
                   {project.links.primary.url.startsWith('http') ? (
                     <a href={project.links.primary.url} target="_blank" rel="noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" /> {project.links.primary.label}
+                      {project.links.primary.url.includes("github.com") ? <Github className="mr-2 h-4 w-4" /> : <Globe className="mr-2 h-4 w-4" />} {project.links.primary.label}
                     </a>
                   ) : (
                     <Link href={project.links.primary.url}>
-                      <ExternalLink className="mr-2 h-4 w-4" /> {project.links.primary.label}
+                      <Globe className="mr-2 h-4 w-4" /> {project.links.primary.label}
                     </Link>
                   )}
                 </Button>
@@ -206,11 +206,11 @@ export default function ProjectDetail() {
                 <Button key={idx} asChild variant="outline" className="w-full font-mono font-medium border-border/60 hover:bg-muted/50">
                   {link.url.startsWith('http') ? (
                     <a href={link.url} target="_blank" rel="noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" /> {link.label}
+                      {link.url.includes("github.com") ? <Github className="mr-2 h-4 w-4" /> : <Globe className="mr-2 h-4 w-4" />} {link.label}
                     </a>
                   ) : (
                     <Link href={link.url}>
-                      <ExternalLink className="mr-2 h-4 w-4" /> {link.label}
+                      <Globe className="mr-2 h-4 w-4" /> {link.label}
                     </Link>
                   )}
                 </Button>
