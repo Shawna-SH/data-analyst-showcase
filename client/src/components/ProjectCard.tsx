@@ -46,7 +46,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <CardHeader>
         <div className="flex justify-between items-start gap-4">
           <div className="space-y-1">
-            <h3 className="text-xl font-semibold leading-tight line-clamp-2">{project.title}</h3>
+            <h3 className="font-semibold leading-tight line-clamp-2">{project.title}</h3>
             <p className="font-mono text-xs text-primary">{project.role}</p>
           </div>
         </div>
