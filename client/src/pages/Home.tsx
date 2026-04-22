@@ -3,6 +3,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Terminal } from "lucide-react";
 import { Link } from "wouter";
+import { Helmet } from "react-helmet-async";
 
 // Import generated background image
 import heroBg from "@/assets/images/hero-bg.png";
@@ -33,8 +34,35 @@ export default function Home() {
     visuals: p.visuals.map(v => imageMap[v] || v)
   }));
 
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": personalInfo.name,
+    "url": "https://ruipushi.com",
+    "jobTitle": personalInfo.headline,
+    "sameAs": [
+      personalInfo.github,
+      personalInfo.linkedin
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <Helmet>
+        <title>Ruipu Shi | Data Engineer & Analyst Portfolio | Canberra</title>
+        <meta name="description" content="Portfolio of Ruipu Shi, Data Engineer and Analyst specializing in data pipelines, machine learning, and data visualization in Canberra." />
+        <meta property="og:title" content="Ruipu Shi | Data Engineer & Analyst Portfolio" />
+        <meta property="og:description" content="Portfolio of Ruipu Shi, Data Engineer and Analyst specializing in data pipelines, machine learning, and data visualization." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ruipushi.com/" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ruipu Shi | Data Engineer & Analyst Portfolio" />
+        <meta name="twitter:description" content="Portfolio of Ruipu Shi, Data Engineer and Analyst specializing in data pipelines, machine learning, and data visualization." />
+        <script type="application/ld+json">
+          {JSON.stringify(personSchema)}
+        </script>
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative pt-24 pb-32 overflow-hidden">
         {/* Background Image & Overlay */}
@@ -51,10 +79,10 @@ export default function Home() {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-              Hi, I'm <span className="text-primary">{personalInfo.name}</span>.
+              Ruipu Shi, <br className="hidden md:block" /><span className="text-primary">Data Engineer & Analyst</span>
             </h1>
             <h2 className="text-2xl md:text-3xl text-muted-foreground font-light mb-6">
-              {personalInfo.headline}
+              Building scalable data pipelines and actionable insights
             </h2>
             <p className="text-lg text-muted-foreground mb-10 max-w-2xl leading-relaxed">
               {personalInfo.shortIntro} Specialized in transforming messy data into 
@@ -68,8 +96,8 @@ export default function Home() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="font-mono">
-                <Link href="/demos">
-                  Try Demos
+                <Link href="/about">
+                  About Me
                 </Link>
               </Button>
             </div>

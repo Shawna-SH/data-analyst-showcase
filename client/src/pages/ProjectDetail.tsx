@@ -4,6 +4,8 @@ import { ArrowLeft, ExternalLink, Github, Database, Code2, Server, Globe, AppWin
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { Helmet } from "react-helmet-async";
+import { ProjectCard } from "@/components/ProjectCard";
 
 // Import project images to satisfy Vite's static asset requirements
 import anuDashboardPosterImg from "@/assets/images/anu-dashboard-poster.jpg";
@@ -41,8 +43,44 @@ export default function ProjectDetail() {
     visuals: rawProject.visuals.map(v => imageMap[v] || v)
   };
 
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": project.title,
+    "description": project.short_summary,
+    "url": `https://ruipushi.com/projects/${project.id}`,
+    "author": {
+      "@type": "Person",
+      "name": "Ruipu Shi"
+    }
+  };
+
+  const relatedProjects = PROJECTS.filter(p => p.id !== project.id)
+    .slice(0, 2)
+    .map(p => ({
+      ...p,
+      visuals: p.visuals.map(v => imageMap[v] || v)
+    }));
+
   return (
     <div className="container max-w-6xl py-12 md:py-20">
+      <Helmet>
+        <title>{`${project.title} | Data Engineering & Analytics Project | Ruipu Shi`}</title>
+        <meta name="description" content={project.short_summary} />
+        <meta property="og:title" content={`${project.title} | Ruipu Shi Portfolio`} />
+        <meta property="og:description" content={project.short_summary} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://ruipushi.com/projects/${project.id}`} />
+        {project.visuals[0] && <meta property="og:image" content={`https://ruipushi.com${project.visuals[0]}`} />}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${project.title} | Ruipu Shi`} />
+        <meta name="twitter:description" content={project.short_summary} />
+        {project.visuals[0] && <meta name="twitter:image" content={`https://ruipushi.com${project.visuals[0]}`} />}
+        <script type="application/ld+json">
+          {JSON.stringify(projectSchema)}
+        </script>
+      </Helmet>
+
       <Link href="/projects">
         <span className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary mb-8 cursor-pointer transition-colors">
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to projects
@@ -248,6 +286,18 @@ export default function ProjectDetail() {
           </div>
         </aside>
       </div>
+
+      {/* Related Projects */}
+      {relatedProjects.length > 0 && (
+        <div className="mt-20 pt-10 border-t">
+          <h2 className="text-2xl font-bold tracking-tight mb-8">Related Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {relatedProjects.map(p => (
+              <ProjectCard key={p.id} project={p} />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -2,21 +2,34 @@ import { PORTFOLIO_CONFIG } from "@/data/config";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Github, Linkedin, Download, Terminal, Database, LineChart } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 export default function About() {
   const { personalInfo, skills } = PORTFOLIO_CONFIG;
 
   return (
     <div className="container py-12 md:py-24 max-w-4xl min-h-screen">
+      <Helmet>
+        <title>About Ruipu Shi | Data Engineer & Analyst</title>
+        <meta name="description" content="Learn more about Ruipu Shi, a data professional combining technical capability with strong analytical thinking and user-centered design." />
+        <meta property="og:title" content="About Ruipu Shi | Data Engineer & Analyst" />
+        <meta property="og:description" content="Learn more about Ruipu Shi, a data professional combining technical capability with strong analytical thinking and user-centered design." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ruipushi.com/about" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Ruipu Shi | Data Engineer & Analyst" />
+        <meta name="twitter:description" content="Learn more about Ruipu Shi, a data professional combining technical capability with strong analytical thinking." />
+      </Helmet>
+
       <div className="grid md:grid-cols-[2fr_1fr] gap-12 items-start">
         
         {/* Left Column: Bio & Skills */}
         <div className="space-y-12">
           <section>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">About Me</h1>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">About Ruipu Shi</h1>
             <div className="prose prose-lg dark:prose-invert text-muted-foreground leading-relaxed">
               <p className="mb-4">
-                I am a data analyst who enjoys transforming complex and messy datasets 
+                I am a data analyst and data engineer who enjoys transforming complex and messy datasets 
                 into clear insights that support better decisions. I approach data problems 
                 with curiosity and structure, focusing on understanding patterns, uncovering 
                 meaningful trends, and communicating results in a way that stakeholders can 
