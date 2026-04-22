@@ -55,12 +55,28 @@ export default function ProjectDetail() {
     }
   };
 
-  const relatedProjects = PROJECTS.filter(p => p.id !== project.id)
-    .slice(0, 2)
-    .map(p => ({
-      ...p,
-      visuals: p.visuals.map(v => imageMap[v] || v)
-    }));
+  const getRelatedProjects = (currentProject: typeof rawProject, allProjects: typeof PROJECTS) => {
+    const others = allProjects.filter(p => p.id !== currentProject.id);
+    
+    const scored = others.map(p => {
+      const sharedTags = p.tags.filter(tag => currentProject.tags.includes(tag)).length;
+      return { ...p, score: sharedTags };
+    });
+    
+    // Sort by shared tags descending
+    scored.sort((a, b) => b.score - a.score);
+    
+    // Return top 2 matches. If scores are 0, it simply returns the first few remaining projects.
+    return scored.slice(0, 2).map(p => {
+      const { score, ...projectData } = p;
+      return projectData;
+    });
+  };
+
+  const relatedProjects = getRelatedProjects(rawProject, PROJECTS).map(p => ({
+    ...p,
+    visuals: p.visuals.map(v => imageMap[v] || v)
+  }));
 
   return (
     <div className="container max-w-6xl py-12 md:py-20">
