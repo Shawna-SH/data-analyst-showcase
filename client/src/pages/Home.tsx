@@ -79,7 +79,7 @@ export default function Home() {
             </div>
             
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-              Ruipu Shi, <br className="hidden md:block" /><span className="text-primary">Data Engineer & Analyst</span>
+              Hi, I'm Ruipu Shi, <br className="hidden md:block" /><span className="text-primary">Data Engineer & Analyst</span>
             </h1>
             <h2 className="text-lg md:text-xl text-muted-foreground font-light mb-6">
               Building scalable data pipelines and actionable insights
