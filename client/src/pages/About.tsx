@@ -26,7 +26,7 @@ export default function About() {
         {/* Left Column: Bio & Skills */}
         <div className="space-y-12">
           <section>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">About Ruipu Shi</h1>
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-6">About Ruipu Shi</h1>
             <div className="prose prose-lg dark:prose-invert text-muted-foreground leading-relaxed">
               <p className="mb-4">
                 I am a data analyst and data engineer who enjoys transforming complex and messy datasets 
@@ -47,7 +47,7 @@ export default function About() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+            <h2 className="text-lg md:text-xl font-bold mb-6 flex items-center gap-2">
               <Terminal className="h-5 w-5 text-primary" /> Core Capabilities
             </h2>
             

@@ -78,10 +78,10 @@ export default function Home() {
               <span className="font-mono">System.out.println("Hello, World!");</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
               Ruipu Shi, <br className="hidden md:block" /><span className="text-primary">Data Engineer & Analyst</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl text-muted-foreground font-light mb-6">
+            <h2 className="text-lg md:text-xl text-muted-foreground font-light mb-6">
               Building scalable data pipelines and actionable insights
             </h2>
             <p className="text-lg text-muted-foreground mb-10 max-w-2xl leading-relaxed">
@@ -110,7 +110,7 @@ export default function Home() {
         <div className="container">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight mb-2">Featured Work</h2>
+              <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-2">Featured Work</h2>
               <p className="text-muted-foreground">Select projects highlighting pipelines, analysis, and ML.</p>
             </div>
             <Button asChild variant="ghost" className="hidden sm:flex font-mono">

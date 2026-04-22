@@ -110,7 +110,7 @@ export default function ProjectDetail() {
           </Badge>
           {project.featured && <Badge variant="default" className="font-mono">Featured</Badge>}
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">{project.title}</h1>
+        <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-6">{project.title}</h1>
         <p className="text-xl text-muted-foreground leading-relaxed">
           {project.short_summary}
         </p>
@@ -131,7 +131,7 @@ export default function ProjectDetail() {
         <div className="flex-1 space-y-12 w-full min-w-0">
           {project.sections.map((section, idx) => (
             <section key={idx}>
-              <h2 className="text-2xl font-bold tracking-tight mb-4 border-b pb-2">
+              <h2 className="text-lg md:text-xl font-bold tracking-tight mb-4 border-b pb-2">
                 {section.title}
               </h2>
 
@@ -295,7 +295,7 @@ export default function ProjectDetail() {
           <Separator className="bg-border/40" />
 
           <div>
-            <h3 className="font-semibold flex items-center gap-2 mb-2 text-sm text-muted-foreground">
+            <h3 className="font-semibold flex items-center gap-2 mb-2 text-xs md:text-sm text-muted-foreground">
               <Database className="h-4 w-4" /> Data Source
             </h3>
             <p className="text-sm leading-relaxed text-foreground/90">{project.dataset_source}</p>
@@ -306,7 +306,7 @@ export default function ProjectDetail() {
       {/* Related Projects */}
       {relatedProjects.length > 0 && (
         <div className="mt-20 pt-10 border-t">
-          <h2 className="text-2xl font-bold tracking-tight mb-8">Related Projects</h2>
+          <h2 className="text-lg md:text-xl font-bold tracking-tight mb-8">Related Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {relatedProjects.map(p => (
               <ProjectCard key={p.id} project={p} />

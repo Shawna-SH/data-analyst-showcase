@@ -60,7 +60,7 @@ export default function Projects() {
       </Helmet>
 
       <div className="max-w-2xl mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Data Analytics & Machine Learning Projects</h1>
+        <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">Data Analytics & Machine Learning Projects</h1>
         <p className="text-lg text-muted-foreground">
           A comprehensive look at my work spanning data analysis, engineering, and machine learning pipelines.
         </p>
