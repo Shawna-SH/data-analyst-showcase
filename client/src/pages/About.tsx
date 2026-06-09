@@ -161,12 +161,12 @@ export default function About() {
               Looking for a formal overview of my experience and education?
             </p>
             <div className="space-y-3">
-              <Button asChild variant="outline" className="w-full font-mono">
+              <Button asChild className="w-full font-mono">
                 <a href={personalInfo.resumes.analyst} target="_blank" rel="noreferrer">
                   <Download className="mr-2 h-4 w-4" /> Data Analyst Resume (PDF)
                 </a>
               </Button>
-              <Button asChild variant="outline" className="w-full font-mono">
+              <Button asChild className="w-full font-mono">
                 <a href={personalInfo.resumes.engineer} target="_blank" rel="noreferrer">
                   <Download className="mr-2 h-4 w-4" /> Data Engineer Resume (PDF)
                 </a>
