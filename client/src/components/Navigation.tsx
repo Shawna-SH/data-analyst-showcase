@@ -48,12 +48,12 @@ export function Navigation() {
               <Linkedin className="h-5 w-5" />
             </a>
             <div className="flex gap-2">
-              <Button asChild variant="outline" size="sm" className="font-mono text-xs">
+              <Button asChild variant="outline" size="sm" className="text-xs font-medium">
                 <a href={personalInfo.resumes.analyst} target="_blank" rel="noreferrer">
                   <FileText className="mr-2 h-4 w-4" /> Analyst Resume
                 </a>
               </Button>
-              <Button asChild variant="outline" size="sm" className="font-mono text-xs">
+              <Button asChild variant="outline" size="sm" className="text-xs font-medium">
                 <a href={personalInfo.resumes.engineer} target="_blank" rel="noreferrer">
                   <FileText className="mr-2 h-4 w-4" /> Engineer Resume
                 </a>
