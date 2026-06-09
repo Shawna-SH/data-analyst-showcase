@@ -47,11 +47,18 @@ export function Navigation() {
             <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               <Linkedin className="h-5 w-5" />
             </a>
-            <Button asChild variant="outline" size="sm" className="font-mono text-xs">
-              <a href={personalInfo.resumeLink}>
-                <FileText className="mr-2 h-4 w-4" /> Resume
-              </a>
-            </Button>
+            <div className="flex gap-2">
+              <Button asChild variant="outline" size="sm" className="font-mono text-xs">
+                <a href={personalInfo.resumes.analyst} target="_blank" rel="noreferrer">
+                  <FileText className="mr-2 h-4 w-4" /> Analyst Resume
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="sm" className="font-mono text-xs">
+                <a href={personalInfo.resumes.engineer} target="_blank" rel="noreferrer">
+                  <FileText className="mr-2 h-4 w-4" /> Engineer Resume
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
 
