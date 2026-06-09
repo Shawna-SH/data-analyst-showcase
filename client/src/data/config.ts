@@ -6,7 +6,10 @@ export const PORTFOLIO_CONFIG = {
     email: "shiruipu23@gmail.com",
     github: "https://github.com/Shawna-SH",
     linkedin: "https://www.linkedin.com/in/ruipushi/",
-    resumeLink: "/Ruipu_Shi_Resume.pdf"
+    resumes: {
+      analyst: "/resumes/Ruipu_Shi_Data_Analyst_Resume.pdf",
+      engineer: "/resumes/Ruipu_Shi_Data_Engineer_Resume.pdf"
+    }
   },
   skills: {
     languages: ["Python", "SQL", "R", "JavaScript / TypeScript"],
