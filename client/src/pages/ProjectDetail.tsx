@@ -4,7 +4,8 @@ import { ArrowLeft, ExternalLink, Github, Database, Code2, Server, Globe, AppWin
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Helmet } from "react-helmet-async";
+import { PageMetadata } from "@/components/PageMetadata";
+import { projectRoute } from "@/data/routes";
 import { ProjectCard } from "@/components/ProjectCard";
 
 // Import project images to satisfy Vite's static asset requirements
@@ -80,22 +81,14 @@ export default function ProjectDetail() {
 
   return (
     <div className="container max-w-6xl py-12 md:py-20">
-      <Helmet>
-        <title>{`${project.title} | Data Engineering & Analytics Project | Ruipu Shi`}</title>
-        <meta name="description" content={project.short_summary} />
-        <meta property="og:title" content={`${project.title} | Ruipu Shi Portfolio`} />
-        <meta property="og:description" content={project.short_summary} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://ruipushi.com/projects/${project.id}`} />
-        {project.visuals[0] && <meta property="og:image" content={`https://ruipushi.com${project.visuals[0]}`} />}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${project.title} | Ruipu Shi`} />
-        <meta name="twitter:description" content={project.short_summary} />
-        {project.visuals[0] && <meta name="twitter:image" content={`https://ruipushi.com${project.visuals[0]}`} />}
-        <script type="application/ld+json">
-          {JSON.stringify(projectSchema)}
-        </script>
-      </Helmet>
+      <PageMetadata
+        title={`${project.title} | Data Engineering & Analytics Project | Ruipu Shi`}
+        description={project.short_summary}
+        path={projectRoute(project.id)}
+        type="article"
+        image={project.visuals[0] || "/opengraph.jpg"}
+        structuredData={projectSchema}
+      />
 
       <Link href="/projects">
         <span className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary mb-8 cursor-pointer transition-colors">

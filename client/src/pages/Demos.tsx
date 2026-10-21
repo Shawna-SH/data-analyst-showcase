@@ -7,6 +7,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calculator, UploadCloud, Camera, Image as ImageIcon, Sparkles, RefreshCcw, ExternalLink } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useParams, useLocation } from "wouter";
+import { DEMOS } from "@/data/config";
+import { PageMetadata } from "@/components/PageMetadata";
+import { demoRoute } from "@/data/routes";
 
 export default function Demos() {
   const { toast } = useToast();
@@ -14,6 +17,7 @@ export default function Demos() {
   const [, setLocation] = useLocation();
 
   const currentSlug = params?.slug || "pet-classifier";
+  const currentDemo = DEMOS.find((demo) => demo.slug === currentSlug);
 
   const handleTabChange = (value: string) => {
     setLocation(`/demos/${value}`);
@@ -21,6 +25,20 @@ export default function Demos() {
 
   return (
     <div className="container py-12 md:py-20 min-h-screen">
+      <PageMetadata
+        title={currentSlug === "pet-classifier" ? "Pet Image Classifier Demo | Ruipu Shi" : "Interactive Demos | Ruipu Shi"}
+        description={currentSlug === "pet-classifier" ? "Try a cat-versus-dog image classifier built with PyTorch, ResNet18, and Hugging Face Spaces." : "Interactive data and machine learning demonstrations by Ruipu Shi."}
+        path={demoRoute(currentSlug)}
+        noIndex={!currentDemo?.indexable}
+        structuredData={currentSlug === "pet-classifier" ? {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Pet Image Classifier",
+          "applicationCategory": "MachineLearningApplication",
+          "description": "An interactive cat-versus-dog image classifier powered by a fine-tuned deep learning model.",
+          "url": "https://ruipushi.com/demos/pet-classifier",
+        } : undefined}
+      />
       <div className="w-full max-w-4xl mx-auto mb-12">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Interactive Demos</h1>
         <p className="text-lg text-muted-foreground">
@@ -30,8 +48,12 @@ export default function Demos() {
 
       <Tabs value={currentSlug} onValueChange={handleTabChange} className="w-full max-w-4xl mx-auto">
         <TabsList className="grid w-full grid-cols-2 mb-8">
-          <TabsTrigger value="pet-classifier" className="font-mono"><ImageIcon className="mr-2 h-4 w-4" /> Pet Image Classifier</TabsTrigger>
-          <TabsTrigger value="coming-soon" className="font-mono"><Sparkles className="mr-2 h-4 w-4" /> Coming Soon</TabsTrigger>
+          {DEMOS.map((demo) => (
+            <TabsTrigger key={demo.slug} value={demo.slug} className="font-mono">
+              {demo.slug === "pet-classifier" ? <ImageIcon className="mr-2 h-4 w-4" /> : <Sparkles className="mr-2 h-4 w-4" />}
+              {demo.label}
+            </TabsTrigger>
+          ))}
         </TabsList>
 
         {/* Pet Image Classifier Demo */}

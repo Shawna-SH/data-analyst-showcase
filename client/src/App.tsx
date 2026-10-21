@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { Switch, Route, Redirect, useLocation } from "wouter";
+import { Router as WouterRouter, Switch, Route, Redirect, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navigation } from "@/components/Navigation";
 import NotFound from "@/pages/not-found";
+import { SITE_ROUTES } from "@/data/routes";
 
 // Pages
 import Home from "@/pages/Home";
@@ -32,16 +32,16 @@ function Router() {
       <Navigation />
       <main className="flex-grow">
         <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/projects" component={Projects} />
-          <Route path="/projects/:id" component={ProjectDetail} />
+          <Route path={SITE_ROUTES.home} component={Home} />
+          <Route path={SITE_ROUTES.projects} component={Projects} />
+          <Route path={`${SITE_ROUTES.projects}/:id`} component={ProjectDetail} />
           
-          <Route path="/demos">
-             <Redirect to="/demos/pet-classifier" />
+          <Route path={SITE_ROUTES.demos}>
+             <Redirect to={`${SITE_ROUTES.demos}/pet-classifier`} />
           </Route>
-          <Route path="/demos/:slug" component={Demos} />
+          <Route path={`${SITE_ROUTES.demos}/:slug`} component={Demos} />
           
-          <Route path="/about" component={About} />
+          <Route path={SITE_ROUTES.about} component={About} />
           <Route component={NotFound} />
         </Switch>
       </main>
@@ -52,16 +52,20 @@ function Router() {
   );
 }
 
-function App() {
+type AppProps = {
+  ssrPath?: string;
+};
+
+function App({ ssrPath }: AppProps) {
   return (
-    <HelmetProvider>
+    <WouterRouter ssrPath={ssrPath}>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <Toaster />
           <Router />
         </TooltipProvider>
       </QueryClientProvider>
-    </HelmetProvider>
+    </WouterRouter>
   );
 }
 

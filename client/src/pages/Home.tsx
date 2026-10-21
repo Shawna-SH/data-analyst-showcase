@@ -3,7 +3,8 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Terminal } from "lucide-react";
 import { Link } from "wouter";
-import { Helmet } from "react-helmet-async";
+import { PageMetadata } from "@/components/PageMetadata";
+import { SITE_ROUTES } from "@/data/routes";
 
 // Import generated background image
 import heroBg from "@/assets/images/hero-bg.png";
@@ -48,20 +49,12 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Helmet>
-        <title>Ruipu Shi | Data Engineer & Analyst Portfolio | Canberra</title>
-        <meta name="description" content="Portfolio of Ruipu Shi, Data Engineer and Analyst specializing in data pipelines, machine learning, and data visualization in Canberra." />
-        <meta property="og:title" content="Ruipu Shi | Data Engineer & Analyst Portfolio" />
-        <meta property="og:description" content="Portfolio of Ruipu Shi, Data Engineer and Analyst specializing in data pipelines, machine learning, and data visualization." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ruipushi.com/" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ruipu Shi | Data Engineer & Analyst Portfolio" />
-        <meta name="twitter:description" content="Portfolio of Ruipu Shi, Data Engineer and Analyst specializing in data pipelines, machine learning, and data visualization." />
-        <script type="application/ld+json">
-          {JSON.stringify(personSchema)}
-        </script>
-      </Helmet>
+      <PageMetadata
+        title="Ruipu Shi | Data Engineer & Analyst Portfolio | Canberra"
+        description="Portfolio of Ruipu Shi, Data Engineer and Analyst specializing in data pipelines, machine learning, and data visualization in Canberra."
+        path={SITE_ROUTES.home}
+        structuredData={personSchema}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-32 overflow-hidden">

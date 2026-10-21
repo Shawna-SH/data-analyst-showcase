@@ -4,7 +4,8 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Search, SlidersHorizontal } from "lucide-react";
-import { Helmet } from "react-helmet-async";
+import { PageMetadata } from "@/components/PageMetadata";
+import { SITE_ROUTES } from "@/data/routes";
 
 // Import project images to satisfy Vite's static asset requirements
 import anuDashboardPosterImg from "@/assets/images/anu-dashboard-poster.jpg";
@@ -47,17 +48,11 @@ export default function Projects() {
 
   return (
     <div className="container py-12 md:py-20 min-h-screen">
-      <Helmet>
-        <title>Data Analytics & Machine Learning Projects | Ruipu Shi</title>
-        <meta name="description" content="Explore my data engineering, machine learning, and data analysis projects, including scalable pipelines, classification models, and interactive dashboards." />
-        <meta property="og:title" content="Data Analytics & Machine Learning Projects | Ruipu Shi" />
-        <meta property="og:description" content="Explore my data engineering, machine learning, and data analysis projects, including scalable pipelines, classification models, and interactive dashboards." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ruipushi.com/projects" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Data Analytics & Machine Learning Projects | Ruipu Shi" />
-        <meta name="twitter:description" content="Explore my data engineering, machine learning, and data analysis projects." />
-      </Helmet>
+      <PageMetadata
+        title="Data Analytics & Machine Learning Projects | Ruipu Shi"
+        description="Explore my data engineering, machine learning, and data analysis projects, including scalable pipelines, classification models, and interactive dashboards."
+        path={SITE_ROUTES.projects}
+      />
 
       <div className="max-w-2xl mb-12">
         <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">Data Analytics & Machine Learning Projects</h1>
