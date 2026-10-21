@@ -6,8 +6,8 @@ The site showcases selected projects in data analytics, data engineering, and ma
 
 ## Live Site
 
-<a href="https://data-analyst-showcase--shiruipu23.replit.app">
-  <img src="https://data-analyst-showcase--shiruipu23.replit.app/favicon.png" width="20" />
+<a href="https://ruipushi.com">
+  <img src="https://ruipushi.com/favicon.png" width="20" />
   <b>Ruipu Shi Portfolio</b>
 </a>
 
