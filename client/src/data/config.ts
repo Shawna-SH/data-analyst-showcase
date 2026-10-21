@@ -52,6 +52,25 @@ export type Project = {
   featured?: boolean;
 };
 
+export type Demo = {
+  slug: "pet-classifier" | "coming-soon";
+  label: string;
+  indexable: boolean;
+};
+
+export const DEMOS: Demo[] = [
+  {
+    slug: "pet-classifier",
+    label: "Pet Image Classifier",
+    indexable: true,
+  },
+  {
+    slug: "coming-soon",
+    label: "Coming Soon",
+    indexable: false,
+  },
+];
+
 export const PROJECTS: Project[] = [
   {
     id: "anu-executive-dashboard",
