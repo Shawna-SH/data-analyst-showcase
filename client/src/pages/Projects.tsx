@@ -7,21 +7,6 @@ import { Search, SlidersHorizontal } from "lucide-react";
 import { PageMetadata } from "@/components/PageMetadata";
 import { SITE_ROUTES } from "@/data/routes";
 
-// Import project images to satisfy Vite's static asset requirements
-import anuDashboardPosterImg from "@/assets/images/anu-dashboard-poster.jpg";
-import anuDashboardUiImg from "@/assets/images/anu-dashboard-ui.jpg";
-import petClassifierImg from "@/assets/images/pet-classifier-new.jpeg";
-import companyEnrichmentImg from "@/assets/images/company-enrichment-architecture.png";
-import chongqingNoodleImg from "@/assets/images/chongqing-street-noodle.png";
-
-const imageMap: Record<string, string> = {
-  "/assets/images/anu-dashboard-poster.jpg": anuDashboardPosterImg,
-  "/assets/images/anu-dashboard-ui.jpg": anuDashboardUiImg,
-  "/assets/images/pet-classifier.png": petClassifierImg,
-  "/assets/images/company-enrichment-architecture.png": companyEnrichmentImg,
-  "/assets/images/chongqing-street-noodle.png": chongqingNoodleImg,
-};
-
 export default function Projects() {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeTag, setActiveTag] = useState<string | null>(null);
@@ -41,10 +26,7 @@ export default function Projects() {
                           
     const matchesTag = activeTag ? p.tags.includes(activeTag) : true;
     return matchesSearch && matchesTag;
-  }).map(p => ({
-    ...p,
-    visuals: p.visuals.map(v => imageMap[v] || v)
-  }));
+  });
 
   return (
     <div className="container py-12 md:py-20 min-h-screen">
