@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { useLocation } from "wouter";
 import { Project } from "@/data/config";
 import { ArrowRight, Github, Globe, AppWindow } from "lucide-react";
+import { resolveProjectImage } from "@/components/project-content/projectImages";
 
 interface ProjectCardProps {
   project: Project;
@@ -10,8 +11,8 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const [, setLocation] = useLocation();
-  // Use the placeholder image dynamically imported later, or fallback
-  const imagePath = project.visuals[0] || "";
+  const configuredImage = project.presentation?.cardImage ?? project.presentation?.hero?.image;
+  const image = configuredImage && resolveProjectImage(configuredImage);
 
   const handleCardClick = () => {
     setLocation(`/projects/${project.id}`);
@@ -28,10 +29,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <Badge variant="default" className="font-mono text-[10px] uppercase">Featured</Badge>
           </div>
         )}
-        {imagePath ? (
+        {image ? (
           <img 
-            src={imagePath} 
-            alt={project.title} 
+            src={image.src}
+            alt={image.alt}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
